@@ -1,0 +1,40 @@
+pragma ComponentBehavior: Bound
+
+import qs.config
+import qs.services
+import Quickshell.Hyprland
+import QtQuick
+import QtQuick.Layouts
+
+Widget {
+    id: root
+    theme: Config.theme.hud.widgets.workspaces
+
+    implicitHeight: layout.implicitHeight + 2 * border.width
+    implicitWidth: layout.implicitWidth + 2 * border.width
+
+    MouseArea {
+        anchors.fill: layout
+
+        onWheel: event => {
+            if (event.angleDelta.y > 0) {
+                Compositor.goToNextOccupiedWorkspace();
+            } else if (event.angleDelta.y < 0) {
+                Compositor.goToPreviousOccupiedWorkspace();
+            }
+            event.accepted = true;
+        }
+    }
+
+    RowLayout {
+        id: layout
+        spacing: root.theme.spacedBy
+
+        Repeater {
+            id: workspaces
+            model: Hyprland.workspaces
+
+            Workspace {}
+        }
+    }
+}
