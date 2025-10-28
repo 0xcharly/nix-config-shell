@@ -7,6 +7,7 @@ JsonObject {
     component FontFamily: JsonObject {
         id: family
 
+        property string icon: "Material Symbols Rounded"
         property string monospace: "monospace"
         property string sansSerif: "sansserif"
         property string serif: "serif"
@@ -16,6 +17,10 @@ JsonObject {
         id: size
 
         property real scale: 1
+        property FontMeasurements extraSmall: FontMeasurements {
+            fontSize: 8 * size.scale
+            lineHeight: 12 * size.scale
+        }
         property FontMeasurements small: FontMeasurements {
             fontSize: 10 * size.scale
             lineHeight: 14 * size.scale
@@ -25,8 +30,8 @@ JsonObject {
             lineHeight: 16 * size.scale
         }
         property FontMeasurements large: FontMeasurements {
-            fontSize: 14 * size.scale
-            lineHeight: 18 * size.scale
+            fontSize: 16 * size.scale
+            lineHeight: 20 * size.scale
         }
         property FontMeasurements extraLarge: FontMeasurements {
             fontSize: 24 * size.scale
