@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 
 import qs.config
 import qs.services
-import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Layouts
 
@@ -32,7 +31,7 @@ Widget {
 
         Repeater {
             id: workspaces
-            model: Hyprland.workspaces
+            model: Compositor.workspaces
 
             Workspace {}
         }

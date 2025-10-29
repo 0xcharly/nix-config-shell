@@ -3,14 +3,13 @@ pragma ComponentBehavior: Bound
 import qs.config
 import qs.components
 import qs.services
-import Quickshell.Hyprland
 import QtQuick
 
 AnimatedRectangle {
     id: root
 
     required property int index
-    required property HyprlandWorkspace modelData
+    required property var modelData
 
     property bool isHovered: false
     property bool needsAttention: false

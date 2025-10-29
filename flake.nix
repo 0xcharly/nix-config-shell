@@ -27,8 +27,9 @@
         rev = self.rev or self.dirtyRev;
         stdenv = pkgs.clangStdenv;
         quickshell = inputs.quickshell.packages.${pkgs.system}.default.override {
+          withHyprland = true;
           withX11 = false;
-          withI3 = false;
+          withI3 = true;
         };
       };
       default = arc-shell;
@@ -36,7 +37,7 @@
 
     devShells = forAllSystems (pkgs: {
       default = let
-        shell = self.packages.${pkgs.system}.arc-shell;
+        shell = self.packages.${pkgs.system}.default;
       in
         pkgs.mkShell.override {stdenv = shell.stdenv;} {
           inputsFrom = [shell];
