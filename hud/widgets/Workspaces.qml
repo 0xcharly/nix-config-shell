@@ -2,11 +2,16 @@ pragma ComponentBehavior: Bound
 
 import qs.config
 import qs.services
+import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
 Widget {
     id: root
+
+    required property ShellScreen screen
+    readonly property int activeWsId: Compositor.monitorFor(screen).activeWorkspace?.id ?? 1
+
     theme: Config.theme.hud.widgets.workspaces
 
     implicitHeight: layout.implicitHeight + 2 * border.width
@@ -31,7 +36,7 @@ Widget {
 
         Repeater {
             id: workspaces
-            model: Compositor.workspaces
+            model: Compositor.workspacesFor(root.screen)
 
             Workspace {}
         }

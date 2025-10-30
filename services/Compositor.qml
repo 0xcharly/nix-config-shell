@@ -31,6 +31,24 @@ Singleton {
         return undefined;
     }
 
+    function workspacesFor(screen: ShellScreen): var {
+      let monitorId = monitorFor(screen).id;
+      return root.workspaces.values.filter(ws => {
+        return ws.monitor?.id === monitorId;
+      });
+    }
+
+    function monitorFor(screen: ShellScreen): var {
+        switch (root.name) {
+        case "Hyprland":
+            return Hyprland.monitorFor(screen);
+        case "none+i3":
+        case "sway":
+            return I3.monitorFor(screen);
+        }
+        return undefined;
+    }
+
     function getWorkspaceName(workspace: var): string {
         return workspace?.name || workspace?.id.toString() || "";
     }

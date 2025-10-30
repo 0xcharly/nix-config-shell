@@ -23,10 +23,12 @@ Item {
         anchors.fill: parent
 
         BarLeft {
+            screen: root.screen
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             Layout.leftMargin: Config.theme.hud.border.width
         }
         BarRight {
+            screen: root.screen
             Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
             Layout.rightMargin: Config.theme.hud.border.width
         }
