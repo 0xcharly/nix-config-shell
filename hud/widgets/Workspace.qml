@@ -18,7 +18,7 @@ AnimatedRectangle {
             Config.theme.hud.widgets.workspaces.needsAttention;
         } else if (isHovered) {
             Config.theme.hud.widgets.workspaces.hovered;
-        } else if (Compositor.isWorkspaceActive(modelData)) {
+        } else if (Compositor.ipc.isWorkspaceActive(modelData)) {
             Config.theme.hud.widgets.workspaces.active;
         } else {
             Config.theme.hud.widgets.workspaces.inactive;
@@ -37,7 +37,7 @@ AnimatedRectangle {
         anchors.fill: layout
         hoverEnabled: true
 
-        onClicked: Compositor.goToWorkspace(root.modelData)
+        onClicked: Compositor.ipc.goToWorkspace(root.modelData)
         onEntered: root.isHovered = true
         onExited: root.isHovered = false
     }
@@ -53,6 +53,6 @@ AnimatedRectangle {
 
         color: root.theme.contentColor
         style: root.theme.typography
-        text: Compositor.getWorkspaceName(root.modelData)
+        text: Compositor.ipc.getWorkspaceName(root.modelData)
     }
 }
