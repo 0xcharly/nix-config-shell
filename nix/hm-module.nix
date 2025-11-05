@@ -3,13 +3,11 @@ self: {
   pkgs,
   lib,
   ...
-}: let
-  inherit (pkgs.stdenv.hostPlatform) system;
-in {
+}: {
   options = with lib; {
     programs.arcshell = {
       enable = mkEnableOption "Enable Desktop shell";
-      package = mkPackageOption self.packages.${system}.default "The package of desktop shell";
+      package = mkPackageOption self.packages.${pkgs.system} "The package of desktop shell";
       compositor = {
         protocol = mkOption {
           type = types.oneOf ["hyprland" "i3"];
