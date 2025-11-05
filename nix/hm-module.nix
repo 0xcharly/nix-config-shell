@@ -95,7 +95,7 @@ self: {
             if c.extraConfig != ""
             then c.extraConfig
             else "{}"
-          ) [builtins.fromJSON (lib.recursiveUpdate (defaultSettings / c.settings)) builtins.toJSON];
+          ) [builtins.fromJSON (lib.recursiveUpdate (defaultSettings // c.settings)) builtins.toJSON];
       in {
         "arcshell/shell.json".text = mkConfig cfg;
       };
