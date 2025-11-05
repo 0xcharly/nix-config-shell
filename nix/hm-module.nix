@@ -9,14 +9,7 @@ in {
   options = with lib; {
     programs.arcshell = {
       enable = mkEnableOption "Enable Desktop shell";
-      package = mkOption {
-        type = types.package;
-        default =
-          if wayland.windowManager.hyprland.enable
-          then self.packages.${system}.arc-shell-hyprland
-          else self.packages.${system}.arc-shell-i3;
-        description = "The package of desktop shell";
-      };
+      package = mkPackageOption self.packages.${system}.default "The package of desktop shell";
       compositor = {
         protocol = mkOption {
           type = types.oneOf ["hyprland" "i3"];
