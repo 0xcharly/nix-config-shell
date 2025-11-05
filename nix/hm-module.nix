@@ -8,16 +8,6 @@ self: {
     programs.arcshell = {
       enable = mkEnableOption "Enable Desktop shell";
       package = mkPackageOption self.packages.${pkgs.system} "arc-shell" {};
-      compositor = {
-        protocol = mkOption {
-          type = types.oneOf ["hyprland" "i3"];
-          default =
-            if wayland.windowManager.hyprland.enable
-            then "hyperland"
-            else "i3";
-          description = "The IPC protocol to use to communicate with the compositor";
-        };
-      };
       systemd = {
         enable = mkOption {
           type = types.bool;
@@ -89,13 +79,12 @@ self: {
       };
 
       xdg.configFile = let
-        defaultSettings.compositor.protocol = cfg.compositor.protocol;
         mkConfig = c:
           lib.pipe (
             if c.extraConfig != ""
             then c.extraConfig
             else "{}"
-          ) [builtins.fromJSON (lib.recursiveUpdate (defaultSettings // c.settings)) builtins.toJSON];
+          ) [builtins.fromJSON (lib.recursiveUpdate c.settings) builtins.toJSON];
       in {
         "arcshell/shell.json".text = mkConfig cfg;
       };
