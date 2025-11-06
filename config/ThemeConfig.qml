@@ -13,8 +13,8 @@ JsonObject {
             shape: Config.shapes.cornerLarge
         }
         property Widgets widgets: Widgets {}
-        property color scrim: Config.palette.crust
-        property color shadow: Qt.alpha(Config.palette.title, 0.1)
+        property color scrim: Qt.alpha(border.color, 0.2)
+        property color shadow: Qt.alpha(border.color, 0.1)
         property real opacity: 1
         property int barHeight: 36
     }
