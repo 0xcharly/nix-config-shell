@@ -16,7 +16,7 @@ JsonObject {
         property color scrim: Qt.alpha(border.color, 0.2)
         property color shadow: Qt.alpha(border.color, 0.1)
         property real opacity: 1
-        property int barHeight: 36
+        property int barHeight: 32
     }
 
     component Border: JsonObject {
