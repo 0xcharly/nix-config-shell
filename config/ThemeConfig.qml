@@ -10,7 +10,7 @@ JsonObject {
         property Border border: Border {
             width: Config.measurements.small
             color: Config.palette.crust
-            shape: Config.shapes.cornerLarge
+            shape: Config.shapes.cornerSmall
         }
         property Widgets widgets: Widgets {}
         property color scrim: Qt.alpha(border.color, 0.2)
