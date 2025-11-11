@@ -24,6 +24,10 @@ Widget {
         AnimatedText {
             id: label
 
+            font.features: {
+                "pnum": 1 // Enables proportional figures
+            }
+
             color: root.theme.contentColor
             style: root.theme.typography
             text: `${Math.round(UPower.displayDevice.percentage * 100)}%`

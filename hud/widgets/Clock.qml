@@ -24,6 +24,10 @@ Widget {
         // NOTE: workaround to Japanese characters taller than ASCII.
         anchors.topMargin: -5
 
+        font.features: {
+            "pnum": 1 // Enables proportional figures
+        }
+
         color: root.theme.contentColor
         style: root.theme.typography
         text: Services.Clock.datetime
