@@ -19,10 +19,18 @@ Widget {
         spacing: root.theme.spacedBy
 
         anchors.fill: parent
-        PowerManagementIcon {}
+        PowerManagementIcon {
+            bottomPadding: root.theme.padding.bottom
+            leftPadding: root.theme.padding.left
+            topPadding: root.theme.padding.top
+        }
 
         AnimatedText {
             id: label
+
+            bottomPadding: root.theme.padding.bottom
+            rightPadding: root.theme.padding.right
+            topPadding: root.theme.padding.top
 
             font.features: {
                 "tnum": 1 // Enables tabular figures
