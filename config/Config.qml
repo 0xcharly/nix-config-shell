@@ -10,6 +10,7 @@ Singleton {
   property alias theme: adapter.theme
 
   property alias wayland: adapter.wayland
+  property alias animations: adapter.animations
   property alias measurements: adapter.measurements
   property alias palette: adapter.palette
   property alias shapes: adapter.shapes
@@ -41,6 +42,7 @@ Singleton {
       property ThemeConfig theme: ThemeConfig {}
 
       property WaylandConfig wayland: WaylandConfig {}
+      property AnimationsConfig animations: AnimationsConfig {}
       property MeasurementsConfig measurements: MeasurementsConfig {}
       property PaletteConfig palette: PaletteConfig {}
       property ShapesConfig shapes: ShapesConfig {}
