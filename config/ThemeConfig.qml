@@ -99,11 +99,11 @@ JsonObject {
     }
 
     component Typography: JsonObject {
-        property FontStyle label: FontStyle {
         property FontStyle icon: FontStyle {
             family: Config.typography.family.icon
             size: Config.typography.size.large
         }
+        property FontStyle label: FontStyle {
             family: Config.typography.family.sansSerif
             size: Config.typography.size.small
             weight: FontWeight.medium
