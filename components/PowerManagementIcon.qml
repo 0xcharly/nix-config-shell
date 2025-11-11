@@ -24,7 +24,7 @@ MaterialIcon {
             return "battery_android_full";
         }
         const charging = [UPowerDeviceState.Charging, UPowerDeviceState.FullyCharged, UPowerDeviceState.PendingCharge].includes(UPower.displayDevice.state);
-        return charging ? "battery_android_frame_bolt" : `battery_android_${Math.floor(UPower.displayDevice.percentage * 7)}`;
+        return charging ? "battery_android_bolt" : `battery_android_${Math.floor(UPower.displayDevice.percentage * 7)}`;
     }
     color: {
         if (!UPower.onBattery) {
