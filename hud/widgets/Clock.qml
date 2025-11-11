@@ -25,7 +25,7 @@ Widget {
         anchors.topMargin: -5
 
         font.features: {
-            "pnum": 1 // Enables proportional figures
+            "tnum": 1 // Enables tabular figures
         }
 
         color: root.theme.contentColor
