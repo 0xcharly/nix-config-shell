@@ -22,7 +22,7 @@ Widget {
         topPadding: root.theme.padding.top
 
         // NOTE: workaround to Japanese characters taller than ASCII.
-        anchors.topMargin: -4
+        anchors.topMargin: -5
 
         color: root.theme.contentColor
         style: root.theme.typography

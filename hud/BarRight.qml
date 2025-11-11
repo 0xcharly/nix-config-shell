@@ -13,7 +13,12 @@ RowLayout {
 
     spacing: Config.theme.hud.widgets.horizontalSpacing
 
-    Clock {
-      id: clock
+    Loader {
+        asynchronous: true
+        visible: Config.theme.hud.widgets.powerManagement.enable
+
+        sourceComponent: PowerManagement {}
     }
+
+    Clock {}
 }

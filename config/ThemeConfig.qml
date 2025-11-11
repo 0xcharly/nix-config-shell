@@ -29,17 +29,36 @@ JsonObject {
     component Widgets: JsonObject {
         property int horizontalSpacing: Config.measurements.extraSmall
         property Widget base: Widget {}
+        property PowerManagement powerManagement: PowerManagement {}
         property Clock clock: Clock {}
         property Workspaces workspaces: Workspaces {}
     }
 
     component Widget: JsonObject {
+        property bool enable: true
         property color color: Config.theme.hud.border.color
         property color contentColor: Config.palette.text
         property FontStyle typography: Config.theme.typography.mediumLabel
         property int spacedBy: Config.measurements.small
         property PaddingValues padding: PaddingValues {}
         property Border border: Border {}
+    }
+
+    component PowerManagement: Widget {
+        enable: false
+        spacedBy: Config.measurements.extraSmall
+        color: Config.theme.hud.border.color
+        contentColor: Config.palette.subtext0
+        property color warningColor: Config.palette.surface_orange
+        property color warningContentColor: Config.palette.on_surface_orange
+        property color criticalColor: Config.palette.surface_red
+        property color criticalContentColor: Config.palette.on_surface_red
+        padding: PaddingValues {
+            bottom: Config.measurements.extraSmall
+            left: Config.measurements.small
+            right: Config.measurements.small
+            top: Config.measurements.extraSmall
+        }
     }
 
     component Clock: Widget {
