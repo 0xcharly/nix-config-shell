@@ -8,6 +8,11 @@
       url = "git+https://git.outfoxxed.me/outfoxxed/quickshell";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    apdbctl = {
+      url = "github:0xcharly/apdbctl";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -26,6 +31,7 @@
       arc-shell = pkgs.callPackage ./nix {
         rev = self.rev or self.dirtyRev;
         stdenv = pkgs.clangStdenv;
+        apdbctl = inputs.apdbctl.packages.${pkgs.system}.default;
         quickshell = inputs.quickshell.packages.${pkgs.system}.default.override {
           withHyprland = true;
           withX11 = false;

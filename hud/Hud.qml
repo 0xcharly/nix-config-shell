@@ -4,7 +4,6 @@ import qs.config
 import qs.components
 import Quickshell
 import Quickshell.Wayland
-import Quickshell.Hyprland
 import QtQuick
 import QtQuick.Effects
 
@@ -38,7 +37,7 @@ Variants {
                 height: win.height - bar.implicitHeight - Config.theme.hud.border.width
                 intersection: Intersection.Xor
 
-                // regions: regions.instances
+                regions: regions.instances
             }
 
             anchors.top: true
@@ -46,12 +45,28 @@ Variants {
             anchors.left: true
             anchors.right: true
 
-            HyprlandFocusGrab {
-                id: focusGrab
+            Variants {
+                id: regions
 
-                active: false
-                windows: [win]
+                model: panels.children
+
+                Region {
+                    required property Item modelData
+
+                    x: modelData.x + Config.theme.hud.border.width
+                    y: modelData.y + Config.theme.hud.border.width
+                    width: modelData.width
+                    height: modelData.height
+                    intersection: Intersection.Subtract
+                }
             }
+
+            // HyprlandFocusGrab {
+            //     id: focusGrab
+            //
+            //     active: false
+            //     windows: [win]
+            // }
 
             AnimatedRectangle {
                 anchors.fill: parent
@@ -77,9 +92,30 @@ Variants {
                     bar: bar
                 }
 
+                Drawers {
+                    bar: bar
+                    panels: panels
+                }
+            }
+
+            Interactions {
+                screen: scope.modelData
+                panels: panels
+                bar: bar
+
+                Panels {
+                    id: panels
+
+                    screen: scope.modelData
+                    bar: bar
+                }
+
                 Bar {
                     id: bar
                     screen: scope.modelData
+
+                    anchors.left: parent.left
+                    anchors.right: parent.right
                 }
             }
         }

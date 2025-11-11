@@ -1,5 +1,25 @@
 {
   "nodes": {
+    "apdbctl": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1761928267,
+        "narHash": "sha256-GhHYGwqhiTWfIY23Vfe2DMAN5ElBPP98KW0SD7Pu51A=",
+        "owner": "0xcharly",
+        "repo": "apdbctl",
+        "rev": "cca49333ce1d2b19ab2e6bc29c5b24b667a45299",
+        "type": "github"
+      },
+      "original": {
+        "owner": "0xcharly",
+        "repo": "apdbctl",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1761373498,
@@ -38,6 +58,7 @@
     },
     "root": {
       "inputs": {
+        "apdbctl": "apdbctl",
         "nixpkgs": "nixpkgs",
         "quickshell": "quickshell"
       }

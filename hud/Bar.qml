@@ -13,8 +13,6 @@ Item {
     readonly property int exclusiveZone: implicitHeight
 
     anchors.bottom: parent.bottom
-    anchors.left: parent.left
-    anchors.right: parent.right
 
     implicitHeight: Config.theme.hud.barHeight
 

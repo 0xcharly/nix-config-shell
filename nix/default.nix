@@ -4,6 +4,8 @@
   stdenv,
   makeFontsConf,
   makeWrapper,
+  apdbctl,
+  ddcutil,
   hyprland,
   recursive,
   material-symbols,
@@ -18,6 +20,8 @@
   version = "0.0.1";
 
   runtimeInputs = [
+    apdbctl
+    ddcutil
     hyprland
   ];
 

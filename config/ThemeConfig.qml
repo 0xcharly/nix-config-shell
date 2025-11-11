@@ -13,6 +13,7 @@ JsonObject {
             shape: Config.shapes.cornerSmall
         }
         property Widgets widgets: Widgets {}
+        property Osd osd: Osd {}
         property color scrim: Qt.alpha(border.color, 0.2)
         property color shadow: Qt.alpha(border.color, 0.1)
         property real opacity: 1
@@ -89,6 +90,33 @@ JsonObject {
             right: Config.measurements.small
             top: Config.measurements.extraSmall
         }
+    }
+
+    component Osd: JsonObject {
+        property int hideDelay: 2000
+        property Slider slider: Slider {}
+        property PaddingValues padding: PaddingValues {
+            bottom: Config.measurements.large
+            left: Config.measurements.extraSmall
+            right: Config.measurements.extraSmall
+            top: Config.measurements.large
+        }
+        property int spacedBy: Config.measurements.medium
+    }
+
+    component Slider: JsonObject {
+        property int width: 28
+        property int height: 150
+        property color inactiveTrackColor: Config.palette.overlay2
+        property color activeTrackColor: Config.palette.surface_blue
+        property SliderThumb thumb: SliderThumb {}
+    }
+
+    component SliderThumb: JsonObject {
+        property color color: Config.palette.peach
+        property color contentColor: Config.palette.base
+        property FontStyle iconTypography: Config.theme.typography.icon
+        property FontStyle textTypography: Config.theme.typography.smallLabel
     }
 
     component PaddingValues: JsonObject {

@@ -9,12 +9,13 @@ Singleton {
 
   property alias theme: adapter.theme
 
-  property alias wayland: adapter.wayland
   property alias animations: adapter.animations
   property alias measurements: adapter.measurements
   property alias palette: adapter.palette
+  property alias services: adapter.services
   property alias shapes: adapter.shapes
   property alias typography: adapter.typography
+  property alias wayland: adapter.wayland
 
   FileView {
     path: `${FileSystem.config}/shell.json`
@@ -41,12 +42,13 @@ Singleton {
 
       property ThemeConfig theme: ThemeConfig {}
 
-      property WaylandConfig wayland: WaylandConfig {}
       property AnimationsConfig animations: AnimationsConfig {}
       property MeasurementsConfig measurements: MeasurementsConfig {}
       property PaletteConfig palette: PaletteConfig {}
+      property ServicesConfig services: ServicesConfig {}
       property ShapesConfig shapes: ShapesConfig {}
       property TypographyConfig typography: TypographyConfig {}
+      property WaylandConfig wayland: WaylandConfig {}
     }
   }
 }
