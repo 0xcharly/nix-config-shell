@@ -35,7 +35,7 @@ JsonObject {
     component Widget: JsonObject {
         property color color: Config.theme.hud.border.color
         property color contentColor: Config.palette.text
-        property FontStyle typography: Config.theme.typography.label
+        property FontStyle typography: Config.theme.typography.mediumLabel
         property int spacedBy: Config.measurements.small
         property PaddingValues padding: PaddingValues {}
         property Border border: Border {}
@@ -82,7 +82,7 @@ JsonObject {
         property Border border: Border {
             shape: Config.shapes.cornerSmall
         }
-        property FontStyle typography: Config.theme.typography.label
+        property FontStyle typography: Config.theme.typography.mediumLabel
         property PaddingValues padding: PaddingValues {
             bottom: Config.measurements.extraSmall
             left: Config.measurements.small
@@ -103,7 +103,12 @@ JsonObject {
             family: Config.typography.family.icon
             size: Config.typography.size.large
         }
-        property FontStyle label: FontStyle {
+        property FontStyle smallLabel: FontStyle {
+            family: Config.typography.family.sansSerif
+            size: Config.typography.size.extraSmall
+            weight: FontWeight.medium
+        }
+        property FontStyle mediumLabel: FontStyle {
             family: Config.typography.family.sansSerif
             size: Config.typography.size.small
             weight: FontWeight.medium
