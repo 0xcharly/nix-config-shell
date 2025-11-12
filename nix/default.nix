@@ -5,6 +5,7 @@
   makeFontsConf,
   makeWrapper,
   apdbctl,
+  brightnessctl,
   ddcutil,
   hyprland,
   recursive,
@@ -21,6 +22,7 @@
 
   runtimeInputs = [
     apdbctl
+    brightnessctl
     ddcutil
     hyprland
   ];
