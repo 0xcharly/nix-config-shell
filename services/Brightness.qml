@@ -193,7 +193,7 @@ Singleton {
             else if (isDdc)
                 Quickshell.execDetached(["ddcutil", "-b", busNum, "setvcp", "10", rounded]);
             else
-                Quickshell.execDetached(["brightnessctl", "s", `${rounded}%`]);
+                Quickshell.execDetached(["brightnessctl", "set", `${rounded}%`]);
 
             if (isDdc)
                 timer.restart();
@@ -205,7 +205,7 @@ Singleton {
             else if (isDdc)
                 initProc.command = ["ddcutil", "-b", busNum, "getvcp", "10", "--brief"];
             else
-                initProc.command = ["sh", "-c", "echo a b c $(brightnessctl g) $(brightnessctl m)"];
+                initProc.command = ["$(brightnessctl g) $(brightnessctl m)"];
 
             initProc.running = true;
         }
