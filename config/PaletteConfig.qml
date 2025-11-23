@@ -51,4 +51,7 @@ JsonObject {
 
     property color surface_purple: "#312b41"
     property color on_surface_purple: "#cab4f4"
+
+    property color inner_border_color: "#BA55FF"
+    property color inner_border_shadow: "#7828C8"
 }

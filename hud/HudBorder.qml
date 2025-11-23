@@ -34,10 +34,23 @@ Item {
     visible: false
 
     Rectangle {
+      id: m
       anchors.fill: parent
       anchors.margins: Config.theme.hud.border.width
       anchors.bottomMargin: root.bar.implicitHeight
       radius: Config.theme.hud.border.shape
     }
+  }
+
+  Rectangle {
+    anchors.fill: parent
+    anchors.margins: Config.theme.hud.border.width
+    anchors.bottomMargin: root.bar.implicitHeight
+
+    color: "transparent"
+
+    border.color: Config.theme.hud.shadowColor
+    border.width: 1
+    radius: Config.theme.hud.border.shape
   }
 }
