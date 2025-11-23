@@ -15,7 +15,7 @@ JsonObject {
         property Widgets widgets: Widgets {}
         property Osd osd: Osd {}
         property color scrim: Qt.alpha(border.color, 0.2)
-        property color shadow: Qt.alpha(border.color, 0.1)
+        property color shadow: Qt.alpha("#7828C8", 0.1)
         property real opacity: 1
         property int barHeight: 32
     }
