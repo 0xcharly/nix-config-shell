@@ -13,6 +13,7 @@ ShapePath {
     readonly property real roundingX: flatten ? wrapper.width / 2 : rounding
 
     strokeWidth: -1
+    strokeColor: Config.theme.hud.innerBorderColor
     fillColor: Config.theme.hud.border.color
 
     PathArc {

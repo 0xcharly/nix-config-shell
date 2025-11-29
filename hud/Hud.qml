@@ -86,7 +86,7 @@ Variants {
                     shadowEnabled: true
                     blurMax: 64
                     shadowBlur: 0.3
-                    shadowColor: Config.theme.hud.shadowBlur
+                    shadowColor: Config.theme.hud.innerBorderShadow
                 }
 
                 HudBorder {

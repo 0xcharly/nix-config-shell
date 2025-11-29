@@ -49,7 +49,7 @@ Item {
 
     color: "transparent"
 
-    border.color: Config.theme.hud.shadowColor
+    border.color: Config.theme.hud.innerBorderColor
     border.width: 1
     radius: Config.theme.hud.border.shape
   }
