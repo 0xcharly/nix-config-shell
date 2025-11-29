@@ -84,7 +84,8 @@ Variants {
                 layer.enabled: true
                 layer.effect: MultiEffect {
                     shadowEnabled: true
-                    blurMax: 30
+                    blurMax: 64
+                    shadowBlur: 0.3
                     shadowColor: Config.theme.hud.shadowBlur
                 }
 
