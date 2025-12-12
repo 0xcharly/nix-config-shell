@@ -15,6 +15,10 @@ Slider {
         color: Config.theme.hud.osd.slider.inactiveTrackColor
         radius: Config.shapes.cornerFull
 
+        implicitWidth: Config.theme.hud.osd.slider.width
+        width: implicitWidth
+        x: root.leftPadding + root.availableWidth / 2 - width / 2
+
         AnimatedRectangle {
             anchors.left: parent.left
             anchors.right: parent.right
@@ -32,9 +36,10 @@ Slider {
 
         property alias moving: icon.moving
 
-        y: root.visualPosition * (root.availableHeight - height)
-        implicitWidth: root.width
-        implicitHeight: root.width
+        x: root.leftPadding + root.availableWidth / 2 - width / 2
+        y: root.topPadding + root.visualPosition * (root.availableHeight - height)
+        implicitWidth: Config.theme.hud.osd.slider.thumbSize
+        implicitHeight: Config.theme.hud.osd.slider.thumbSize
 
         Elevation {
             anchors.fill: parent

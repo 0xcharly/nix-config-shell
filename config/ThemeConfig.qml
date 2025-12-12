@@ -9,21 +9,21 @@ JsonObject {
     component Hud: JsonObject {
         property Border border: Border {
             width: Config.measurements.small
-            color: Config.palette.crust
+            color: Config.palette.surface
             shape: Config.shapes.cornerSmall
         }
         property Widgets widgets: Widgets {}
         property Osd osd: Osd {}
         property color scrim: Qt.alpha(border.color, 0.2)
         property color innerBorderShadow: Config.palette.inner_border_shadow
-        property color innerBorderColor: Config.palette.inner_border_color
+        property color innerBorderColor: Config.palette.inner_border
         property real opacity: 1
         property int barHeight: 32
     }
 
     component Border: JsonObject {
         property int width: 0
-        property color color: Config.palette.base
+        property color color: Config.palette.surface
         property int shape: 0
     }
 
@@ -49,7 +49,6 @@ JsonObject {
         enable: false
         spacedBy: Config.measurements.extraSmall
         color: Config.theme.hud.border.color
-        contentColor: Config.palette.subtext0
         property color warningColor: Config.palette.surface_orange
         property color warningContentColor: Config.palette.on_surface_orange
         property color criticalColor: Config.palette.surface_red
@@ -64,7 +63,6 @@ JsonObject {
 
     component Clock: Widget {
         color: Config.theme.hud.border.color
-        contentColor: Config.palette.subtext0
         padding: PaddingValues {
             bottom: Config.measurements.extraSmall
             left: Config.measurements.small
@@ -78,7 +76,7 @@ JsonObject {
 
         property Workspace inactive: Workspace {
             color: Config.theme.hud.border.color
-            contentColor: Config.palette.subtext0
+            contentColor: Config.palette.text
         }
 
         property Workspace active: Workspace {
@@ -117,24 +115,25 @@ JsonObject {
         property Slider slider: Slider {}
         property PaddingValues padding: PaddingValues {
             bottom: Config.measurements.large
-            left: Config.measurements.extraSmall
-            right: Config.measurements.extraSmall
+            left: Config.measurements.medium
+            right: Config.measurements.medium
             top: Config.measurements.large
         }
         property int spacedBy: Config.measurements.medium
     }
 
     component Slider: JsonObject {
-        property int width: 28
+        property int width: 10
         property int height: 150
-        property color inactiveTrackColor: Config.palette.overlay2
-        property color activeTrackColor: Config.palette.surface_blue
+        property int thumbSize: 28
+        property color inactiveTrackColor: Config.palette.slider_inactive_track
+        property color activeTrackColor: Config.palette.slider_active_track
         property SliderThumb thumb: SliderThumb {}
     }
 
     component SliderThumb: JsonObject {
-        property color color: Config.palette.peach
-        property color contentColor: Config.palette.base
+        property color color: Config.palette.slider_thumb
+        property color contentColor: Config.palette.surface
         property FontStyle iconTypography: Config.theme.typography.icon
         property FontStyle textTypography: Config.theme.typography.smallLabel
     }
