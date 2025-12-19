@@ -31,8 +31,8 @@
       arc-shell = pkgs.callPackage ./nix {
         rev = self.rev or self.dirtyRev;
         stdenv = pkgs.clangStdenv;
-        apdbctl = inputs.apdbctl.packages.${pkgs.system}.default;
-        quickshell = inputs.quickshell.packages.${pkgs.system}.default.override {
+        apdbctl = inputs.apdbctl.packages.${pkgs.stdenv.hostPlatform.system}.default;
+        quickshell = inputs.quickshell.packages.${pkgs.stdenv.hostPlatform.system}.default.override {
           withHyprland = true;
           withX11 = false;
           withI3 = true;
@@ -43,7 +43,7 @@
 
     devShells = forAllSystems (pkgs: {
       default = let
-        shell = self.packages.${pkgs.system}.default;
+        shell = self.packages.${pkgs.stdenv.hostPlatform.system}.default;
       in
         pkgs.mkShell.override {stdenv = shell.stdenv;} {
           inputsFrom = [shell];
