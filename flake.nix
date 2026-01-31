@@ -48,9 +48,9 @@
         pkgs.mkShell.override {stdenv = shell.stdenv;} {
           inputsFrom = [shell];
           packages = with pkgs; [
-            alejandra
             kdePackages.qtdeclarative
             nixd
+            nixfmt
 
             material-symbols
             nerd-fonts.symbols-only
