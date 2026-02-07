@@ -4,7 +4,7 @@ import QtQuick
 import Quickshell
 import Quickshell.Hyprland
 
-// https://wiki.hypr.land/Configuring/Dispatchers/
+// https://quickshell.org/docs/v0.1.0/types/Quickshell.Hyprland/Hyprland/
 Singleton {
     id: root
 
@@ -34,10 +34,12 @@ Singleton {
     }
 
     function goToWorkspaceId(workspaceId: int): void {
-        if (workspaceId < 0)
+        if (workspaceId < 0) {
             return;
-        if (root.activeWorkspaceId === workspaceId)
+        }
+        if (Hyprland.focusedWorkspace?.id === workspaceId) {
             return;
+        }
         Hyprland.dispatch(`workspace ${workspaceId}`);
     }
 

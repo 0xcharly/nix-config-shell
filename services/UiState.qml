@@ -8,10 +8,10 @@ Singleton {
   property var screens: new Map()
 
   function load(screen: ShellScreen, state: var): void {
-    screens.set(Compositor.monitorFor(screen), state);
+    screens.set(Hypr.monitorFor(screen), state);
   }
 
   function getForActive(): PersistentProperties {
-    return screens.get(Compositor.focusedMonitor)
+    return screens.get(Hypr.focusedMonitor)
   }
 }

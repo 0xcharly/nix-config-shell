@@ -10,7 +10,7 @@ Widget {
     id: root
 
     required property ShellScreen screen
-    readonly property int activeWsId: Compositor.monitorFor(screen)?.activeWorkspace?.id ?? 1
+    readonly property int activeWsId: Hypr.monitorFor(screen)?.activeWorkspace?.id ?? 1
 
     theme: Config.theme.hud.widgets.workspaces
 
@@ -22,9 +22,9 @@ Widget {
 
         onWheel: event => {
             if (event.angleDelta.y > 0) {
-                Compositor.ipc.goToNextOccupiedWorkspace();
+                Hypr.goToNextOccupiedWorkspace();
             } else if (event.angleDelta.y < 0) {
-                Compositor.ipc.goToPreviousOccupiedWorkspace();
+                Hypr.goToPreviousOccupiedWorkspace();
             }
             event.accepted = true;
         }
@@ -36,7 +36,7 @@ Widget {
 
         Repeater {
             id: workspaces
-            model: Compositor.ipc.workspacesFor(root.screen)
+            model: Hypr.workspacesFor(root.screen)
 
             Workspace {}
         }
