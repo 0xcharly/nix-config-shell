@@ -2,7 +2,6 @@ pragma ComponentBehavior: Bound
 
 import qs.config
 import qs.components
-import qs.services as Services
 import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
