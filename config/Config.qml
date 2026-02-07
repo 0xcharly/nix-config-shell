@@ -15,7 +15,6 @@ Singleton {
   property alias services: adapter.services
   property alias shapes: adapter.shapes
   property alias typography: adapter.typography
-  property alias wayland: adapter.wayland
 
   FileView {
     path: `${FileSystem.config}/shell.json`
@@ -48,7 +47,6 @@ Singleton {
       property ServicesConfig services: ServicesConfig {}
       property ShapesConfig shapes: ShapesConfig {}
       property TypographyConfig typography: TypographyConfig {}
-      property WaylandConfig wayland: WaylandConfig {}
     }
   }
 }
