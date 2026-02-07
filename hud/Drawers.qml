@@ -1,4 +1,5 @@
 import qs.config
+import qs.hud.controlcenter as ControlCenter
 import qs.hud.osd as Osd
 import QtQuick
 import QtQuick.Shapes
@@ -14,8 +15,14 @@ Shape {
   anchors.bottomMargin: bar.implicitHeight
   preferredRendererType: Shape.CurveRenderer
 
+  ControlCenter.Drawer {
+    wrapper: root.panels.controlCenter
+
+    startX: root.width
+    startY: root.height
+  }
+
   Osd.Drawer {
-    bar: root.bar
     wrapper: root.panels.osd
 
     startX: root.width

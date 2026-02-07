@@ -10,13 +10,22 @@ MouseArea {
     required property Panels panels
     required property Item bar
 
-    function withinPanelHeight(panel: Item, x: real, y: real): bool {
+    function withinOsdPanelHeight(panel: Item, x: real, y: real): bool {
         const panelY = Config.theme.hud.border.width + panel.y;
         return y >= panelY - Config.theme.hud.border.shape && y <= panelY + panel.height + Config.theme.hud.border.shape;
     }
 
-    function inRightPanel(panel: Item, x: real, y: real): bool {
-        return x >= panel.x && withinPanelHeight(panel, x, y);
+    function inOsdPanel(panel: Item, x: real, y: real): bool {
+        return x >= panel.x && withinOsdPanelHeight(panel, x, y);
+    }
+
+    function withinControlCenterPanelWidth(panel: Item, x: real, y: real): bool {
+        return x >= panel.x;
+    }
+
+    function inControlCenterPanel(panel: Item, x: real, y: real): bool {
+        const panelY = Config.theme.hud.border.width + panel.y;
+        return y >= panelY /* && y <= panelY + panel.height */ && withinControlCenterPanelWidth(panel, x, y);
     }
 
     anchors.fill: parent
@@ -24,6 +33,9 @@ MouseArea {
 
     onContainsMouseChanged: {
         if (!containsMouse) {
+            UiState.showControlCenter = false;
+            root.panels.controlCenter.hovered = false;
+
             UiState.showOsd = false;
             root.panels.osd.hovered = false;
         }
@@ -33,7 +45,7 @@ MouseArea {
         const x = event.x;
         const y = event.y;
 
-        UiState.showOsd = inRightPanel(panels.osd, x, y);
-        root.panels.osd.hovered = inRightPanel(panels.osd, x, y);
+        UiState.showControlCenter = root.panels.controlCenter.hovered = inControlCenterPanel(panels.controlCenter, x, y);
+        UiState.showOsd = root.panels.osd.hovered = inOsdPanel(panels.osd, x, y);
     }
 }
