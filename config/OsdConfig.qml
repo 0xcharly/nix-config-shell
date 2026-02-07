@@ -1,2 +1,3 @@
 import Quickshell.Io
 
+JsonObject {}
