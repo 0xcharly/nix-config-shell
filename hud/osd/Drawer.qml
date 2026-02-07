@@ -1,5 +1,6 @@
 import qs.components
 import qs.config
+import qs.hud.osd as Osd
 import QtQuick
 import QtQuick.Shapes
 
@@ -7,7 +8,7 @@ ShapePath {
     id: root
 
     required property Item bar
-    required property Wrapper wrapper
+    required property Osd.Wrapper wrapper
     readonly property real rounding: Config.theme.hud.border.shape
     readonly property bool flatten: wrapper.width < rounding * 2
     readonly property real roundingX: flatten ? wrapper.width / 2 : rounding
