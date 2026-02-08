@@ -45,8 +45,8 @@ Item {
             ArcSlider {
                 anchors.fill: parent
 
-                icon: IconLibrary.getVolumeIcon(value, root.muted)
                 value: root.volume
+                labelValue: IconLibrary.getVolumeIcon(value, root.muted)
                 to: Config.services.audio.maxVolume
                 onMoved: Audio.setVolume(value)
             }
@@ -75,8 +75,8 @@ Item {
             ArcSlider {
                 anchors.fill: parent
 
-                icon: `brightness_${(Math.round(value * 6) + 1)}`
                 value: root.brightness
+                labelValue: `brightness_${(Math.round(value * 6) + 1)}`
                 onMoved: root.monitor?.setBrightness(value)
             }
         }

@@ -10,8 +10,8 @@ JsonObject {
 
     property TypographyValues icon: TypographyValues {
         family: root.families.icon
-        fontSize: 16 * root.scale
-        lineHeight: 20 * root.scale
+        fontSize: 18 * root.scale
+        lineHeight: 22 * root.scale
         weight: root.weights.normal
         italic: false
         underline: false

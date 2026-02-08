@@ -101,7 +101,7 @@ ArcRectangle {
         Behavior on anchors.bottomMargin {
             AnimatedNumber {
                 duration: root.theme.activeChipAnimation.duration
-                easing.bezierCurve: root.theme.activeChipAnimation.curve
+                easing.bezierCurve: root.theme.activeChipAnimation.curveIn
             }
         }
 
@@ -119,7 +119,7 @@ ArcRectangle {
     Behavior on implicitHeight {
         AnimatedNumber {
             duration: root.theme.activeChipAnimation.duration
-            easing.bezierCurve: root.theme.activeChipAnimation.curve
+            easing.bezierCurve: root.theme.activeChipAnimation.curveIn
         }
     }
 }

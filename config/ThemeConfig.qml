@@ -160,8 +160,9 @@ JsonObject {
         property ComponentTokens.Switch switch_: ComponentTokens.Switch {}
         property SurfaceTokens activeChip: Config.theme.defaults.chips
         property AnimationValues activeChipAnimation: AnimationValues {
+            curveIn: Config.tokens.system.animations.curves.expressiveDefaultSpatial
+            curveOut: Config.tokens.system.animations.curves.expressiveDefaultSpatial
             duration: Config.tokens.system.animations.durations.expressiveDefaultSpatial
-            curve: Config.tokens.system.animations.curves.expressiveDefaultSpatial
         }
     }
 

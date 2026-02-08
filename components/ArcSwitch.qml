@@ -166,6 +166,6 @@ Switch {
     component PropAnim: PropertyAnimation {
         duration: root.theme.animation.duration
         easing.type: Easing.BezierSpline
-        easing.bezierCurve: root.theme.animation.curve
+        easing.bezierCurve: root.theme.animation.curveIn
     }
 }

@@ -56,7 +56,7 @@ JsonObject {
     property color inner_border: "#8250df" // borderColor-done-emphasis
     property color inner_border_shadow: "#c297ff" // borderColor-done-muted
 
-    property color slider_active_track: "#203147"
-    property color slider_inactive_track: "#7a8490"
-    property color slider_thumb: "#f1b48e"
+    property color surface_control_slider_active_track: "#1f6feb" // bgColor-accent-emphasis
+    property color surface_control_slider_inactive_track: "#1a388bfd" // bgColor-accent-muted
+    property color surface_control_slider_thumb: "#4493f8"
 }
