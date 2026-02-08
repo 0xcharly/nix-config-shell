@@ -54,7 +54,7 @@ Item {
             AnimatedNumber {
                 target: root
                 property: "implicitWidth"
-                easing.bezierCurve: Config.animations.curves.expressiveDefaultSpatial
+                easing.bezierCurve: Config.tokens.system.animations.curves.expressiveDefaultSpatial
             }
         },
         Transition {
@@ -64,7 +64,7 @@ Item {
             AnimatedNumber {
                 target: root
                 property: "implicitWidth"
-                easing.bezierCurve: Config.animations.curves.emphasized
+                easing.bezierCurve: Config.tokens.system.animations.curves.emphasized
             }
         }
     ]

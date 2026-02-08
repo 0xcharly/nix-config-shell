@@ -1,17 +1,19 @@
 pragma ComponentBehavior: Bound
 
 import qs.config
+import qs.config.tokens.system as SystemTokens
 import QtQuick
 
 Text {
     id: root
 
-    property ThemeConfig.FontStyle style: Config.theme.typography.body
+    property SystemTokens.Fonts.Style style: Config.tokens.system.typography.body
+
     property bool animate: false
     property string animateProp: "scale"
     property real animateFrom: 0
     property real animateTo: 1
-    property int animateDuration: Config.animations.durations.normal
+    property int animateDuration: Config.tokens.system.animations.durations.normal
 
     renderType: Text.NativeRendering
     textFormat: Text.PlainText
@@ -35,12 +37,12 @@ Text {
         SequentialAnimation {
             Anim {
                 to: root.animateFrom
-                easing.bezierCurve: Config.animations.curves.standardAccel
+                easing.bezierCurve: Config.tokens.system.animations.curves.standardAccel
             }
             PropertyAction {}
             Anim {
                 to: root.animateTo
-                easing.bezierCurve: Config.animations.curves.standardDecel
+                easing.bezierCurve: Config.tokens.system.animations.curves.standardDecel
             }
         }
     }

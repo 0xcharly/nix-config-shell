@@ -1,6 +1,7 @@
 pragma Singleton
 
 import qs.config
+import qs.config.tokens
 import Quickshell
 import Quickshell.Io
 
@@ -9,12 +10,8 @@ Singleton {
 
   property alias theme: adapter.theme
 
-  property alias animations: adapter.animations
-  property alias measurements: adapter.measurements
-  property alias palette: adapter.palette
+  property alias tokens: adapter.tokens
   property alias services: adapter.services
-  property alias shapes: adapter.shapes
-  property alias typography: adapter.typography
 
   FileView {
     path: `${FileSystem.config}/shell.json`
@@ -41,12 +38,8 @@ Singleton {
 
       property ThemeConfig theme: ThemeConfig {}
 
-      property AnimationsConfig animations: AnimationsConfig {}
-      property MeasurementsConfig measurements: MeasurementsConfig {}
-      property PaletteConfig palette: PaletteConfig {}
+      property Tokens tokens: Tokens {}
       property ServicesConfig services: ServicesConfig {}
-      property ShapesConfig shapes: ShapesConfig {}
-      property TypographyConfig typography: TypographyConfig {}
     }
   }
 }

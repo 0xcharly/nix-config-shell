@@ -6,7 +6,7 @@ AnimatedText {
     property real fill
     property int grade: 0
 
-    style: Config.theme.typography.icon
+    style: Config.tokens.system.typography.icon
     font.variableAxes: ({
             FILL: fill.toFixed(1),
             GRAD: grade,

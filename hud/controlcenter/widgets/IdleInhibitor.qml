@@ -36,7 +36,7 @@ AnimatedRectangle {
             implicitWidth: implicitHeight
             implicitHeight: icon.implicitHeight + root.theme.icon.padding.top + root.theme.padding.bottom
 
-            radius: Config.shapes.cornerFull
+            radius: Config.tokens.system.shapes.cornerFull
             color: IdleInhibitor.enabled ? root.theme.iconChecked.surface : root.theme.icon.colors.surface
 
             MaterialIcon {
@@ -107,7 +107,7 @@ AnimatedRectangle {
 
         Behavior on opacity {
             AnimatedNumber {
-                duration: Config.animations.durations.small
+                duration: Config.tokens.system.animations.durations.small
             }
         }
 

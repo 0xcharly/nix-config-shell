@@ -13,7 +13,7 @@ Slider {
 
     background: AnimatedRectangle {
         color: Config.theme.hud.osd.slider.inactiveTrackColor
-        radius: Config.shapes.cornerFull
+        radius: Config.tokens.system.shapes.cornerFull
 
         implicitWidth: Config.theme.hud.osd.slider.width
         width: implicitWidth
@@ -53,7 +53,7 @@ Slider {
             anchors.fill: parent
 
             color: Config.theme.hud.osd.slider.thumb.color
-            radius: Config.shapes.cornerFull
+            radius: Config.tokens.system.shapes.cornerFull
 
             MouseArea {
                 id: handleInteraction
@@ -97,8 +97,8 @@ Slider {
                         target: icon
                         property: "scale"
                         to: 0
-                        duration: Config.animations.durations.normal / 2
-                        easing.bezierCurve: Config.animations.curves.standardAccel
+                        duration: Config.tokens.system.animations.durations.normal / 2
+                        easing.bezierCurve: Config.tokens.system.animations.curves.standardAccel
                     }
                     ScriptAction {
                         script: icon.update()
@@ -107,8 +107,8 @@ Slider {
                         target: icon
                         property: "scale"
                         to: 1
-                        duration: Config.animations.durations.normal / 2
-                        easing.bezierCurve: Config.animations.curves.standardDecel
+                        duration: Config.tokens.system.animations.durations.normal / 2
+                        easing.bezierCurve: Config.tokens.system.animations.curves.standardDecel
                     }
                 }
             }
@@ -141,7 +141,7 @@ Slider {
 
     Behavior on value {
         AnimatedNumber {
-            duration: Config.animations.durations.large
+            duration: Config.tokens.system.animations.durations.large
         }
     }
 }

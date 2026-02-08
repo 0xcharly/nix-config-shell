@@ -14,7 +14,7 @@ Switch {
 
     // Container
     indicator: AnimatedRectangle {
-        radius: Config.shapes.cornerFull
+        radius: Config.tokens.system.shapes.cornerFull
         color: root.checked ? root.theme.trackColorChecked : root.theme.trackColorRest
 
         implicitWidth: implicitHeight * 1.7
@@ -24,7 +24,7 @@ Switch {
         AnimatedClippingRectangle {
             readonly property real nonAnimWidth: root.pressed ? implicitHeight * 1.3 : implicitHeight
 
-            radius: Config.shapes.cornerFull
+            radius: Config.tokens.system.shapes.cornerFull
             color: root.checked ? root.theme.thumbColorChecked.surface : root.theme.thumbColorRest.surface
 
             x: root.checked ? parent.implicitWidth - nonAnimWidth - root.theme.thumbPadding.right : root.theme.thumbPadding.left
