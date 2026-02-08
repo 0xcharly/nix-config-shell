@@ -76,7 +76,7 @@ Item {
                 anchors.fill: parent
 
                 value: root.brightness
-                labelValue: `brightness_${(Math.round(value * 6) + 1)}`
+                labelValue: IconLibrary.getBrightnessIcon(value)
                 onMoved: root.monitor?.setBrightness(value)
             }
         }

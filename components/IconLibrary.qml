@@ -119,18 +119,25 @@ Singleton {
     }
 
     function getVolumeIcon(volume: real, isMuted: bool): string {
-        if (isMuted)
-            return "no_sound";
-        if (volume >= 0.5)
-            return "volume_up";
-        if (volume > 0)
-            return "volume_down";
-        return "volume_mute";
+        if (isMuted || volume == 0) {
+            return "music_off";
+        }
+        return "music_note";
     }
 
     function getMicVolumeIcon(volume: real, isMuted: bool): string {
         if (!isMuted && volume > 0)
             return "mic";
         return "mic_off";
+    }
+
+    function getBrightnessIcon(brightness: real): string {
+        if (brightness < .2) {
+            return "brightness_empty";
+        }
+        if (brightness < .8) {
+            return "brightness_6";
+        }
+        return "brightness_7";
     }
 }
