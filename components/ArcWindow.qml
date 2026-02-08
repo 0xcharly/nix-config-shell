@@ -2,8 +2,8 @@ import Quickshell
 import Quickshell.Wayland
 
 PanelWindow {
-  required property string name
+    required property string name
 
-  WlrLayershell.namespace: `arc-shell-${name}`
-  color: "transparent"
+    WlrLayershell.namespace: `arc-shell-${name}`
+    color: "transparent"
 }

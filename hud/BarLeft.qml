@@ -14,6 +14,6 @@ RowLayout {
     spacing: Config.theme.hud.widgets.horizontalSpacing
 
     Workspaces {
-      screen: layout.screen
+        screen: layout.screen
     }
 }

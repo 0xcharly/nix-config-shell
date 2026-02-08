@@ -18,12 +18,12 @@ Item {
     anchors.bottomMargin: bar.implicitHeight
 
     ControlCenter.Wrapper {
-      id: controlCenter
+        id: controlCenter
 
-      screen: root.screen
+        screen: root.screen
 
-      anchors.bottom: parent.bottom
-      anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.right: parent.right
     }
 
     Osd.Wrapper {

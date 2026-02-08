@@ -39,21 +39,22 @@ Switch {
                 anchors.fill: parent
 
                 color: {
-                  if (root.checked) {
-                    if (root.pressed) {
-                      return root.theme.thumbColorCheckedActive.surface;
-                    } else if (root.hovered) {
-                      return root.theme.thumbColorCheckedHover.surface;
+                    if (root.checked) {
+                        if (root.pressed) {
+                            return root.theme.thumbColorCheckedActive.surface;
+                        } else if (root.hovered) {
+                            return root.theme.thumbColorCheckedHover.surface;
+                        }
+                    } else {
+                        // !root.checked
+                        if (root.pressed) {
+                            return root.theme.thumbColorActive.surface;
+                        } else if (root.hovered) {
+                            return root.theme.thumbColorHover.surface;
+                        }
                     }
-                  } else { // !root.checked
-                    if (root.pressed) {
-                      return root.theme.thumbColorActive.surface;
-                    } else if (root.hovered) {
-                      return root.theme.thumbColorHover.surface;
-                    }
-                  }
 
-                  return "transparent";
+                    return "transparent";
                 }
 
                 Behavior on color {

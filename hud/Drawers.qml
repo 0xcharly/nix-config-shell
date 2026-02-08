@@ -5,27 +5,27 @@ import QtQuick
 import QtQuick.Shapes
 
 Shape {
-  id: root
+    id: root
 
-  required property Panels panels
-  required property Item bar
+    required property Panels panels
+    required property Item bar
 
-  anchors.fill: parent
-  anchors.margins: Config.theme.hud.border.width
-  anchors.bottomMargin: bar.implicitHeight
-  preferredRendererType: Shape.CurveRenderer
+    anchors.fill: parent
+    anchors.margins: Config.theme.hud.border.width
+    anchors.bottomMargin: bar.implicitHeight
+    preferredRendererType: Shape.CurveRenderer
 
-  ControlCenter.Drawer {
-    wrapper: root.panels.controlCenter
+    ControlCenter.Drawer {
+        wrapper: root.panels.controlCenter
 
-    startX: root.width
-    startY: root.height
-  }
+        startX: root.width
+        startY: root.height
+    }
 
-  Osd.Drawer {
-    wrapper: root.panels.osd
+    Osd.Drawer {
+        wrapper: root.panels.osd
 
-    startX: root.width
-    startY: (root.height - wrapper.height) / 2 - rounding
-  }
+        startX: root.width
+        startY: (root.height - wrapper.height) / 2 - rounding
+    }
 }

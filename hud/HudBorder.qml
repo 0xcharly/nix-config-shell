@@ -6,51 +6,51 @@ import QtQuick
 import QtQuick.Effects
 
 Item {
-  id: root
+    id: root
 
-  required property Item bar
+    required property Item bar
 
-  anchors.fill: parent
-
-  AnimatedRectangle {
     anchors.fill: parent
-    color: Config.theme.hud.border.color
 
-    layer.enabled: true
-    layer.effect: MultiEffect {
-      maskSource: mask
-      maskEnabled: true
-      maskInverted: true
-      maskThresholdMin: 0.5
-      maskSpreadAtMin: 1
+    AnimatedRectangle {
+        anchors.fill: parent
+        color: Config.theme.hud.border.color
+
+        layer.enabled: true
+        layer.effect: MultiEffect {
+            maskSource: mask
+            maskEnabled: true
+            maskInverted: true
+            maskThresholdMin: 0.5
+            maskSpreadAtMin: 1
+        }
     }
-  }
 
-  Item {
-    id: mask
+    Item {
+        id: mask
 
-    anchors.fill: parent
-    layer.enabled: true
-    visible: false
+        anchors.fill: parent
+        layer.enabled: true
+        visible: false
+
+        Rectangle {
+            id: m
+            anchors.fill: parent
+            anchors.margins: Config.theme.hud.border.width
+            anchors.bottomMargin: root.bar.implicitHeight
+            radius: Config.theme.hud.border.shape
+        }
+    }
 
     Rectangle {
-      id: m
-      anchors.fill: parent
-      anchors.margins: Config.theme.hud.border.width
-      anchors.bottomMargin: root.bar.implicitHeight
-      radius: Config.theme.hud.border.shape
+        anchors.fill: parent
+        anchors.margins: Config.theme.hud.border.width
+        anchors.bottomMargin: root.bar.implicitHeight
+
+        color: "transparent"
+
+        border.color: Config.theme.hud.innerBorderColor
+        border.width: 1
+        radius: Config.theme.hud.border.shape
     }
-  }
-
-  Rectangle {
-    anchors.fill: parent
-    anchors.margins: Config.theme.hud.border.width
-    anchors.bottomMargin: root.bar.implicitHeight
-
-    color: "transparent"
-
-    border.color: Config.theme.hud.innerBorderColor
-    border.width: 1
-    radius: Config.theme.hud.border.shape
-  }
 }

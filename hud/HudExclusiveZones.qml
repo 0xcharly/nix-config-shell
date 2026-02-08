@@ -6,32 +6,32 @@ import Quickshell
 import QtQuick
 
 Scope {
-  id: root
+    id: root
 
-  required property ShellScreen screen
-  required property Item bar
+    required property ShellScreen screen
+    required property Item bar
 
-  ExclusiveZone {
-    anchors.bottom: true
-    exclusiveZone: root.bar.exclusiveZone
-  }
+    ExclusiveZone {
+        anchors.bottom: true
+        exclusiveZone: root.bar.exclusiveZone
+    }
 
-  ExclusiveZone {
-    anchors.left: true
-  }
+    ExclusiveZone {
+        anchors.left: true
+    }
 
-  ExclusiveZone {
-    anchors.right: true
-  }
+    ExclusiveZone {
+        anchors.right: true
+    }
 
-  ExclusiveZone {
-    anchors.top: true
-  }
+    ExclusiveZone {
+        anchors.top: true
+    }
 
-  component ExclusiveZone: ArcWindow {
-    screen: root.screen
-    name: "border-exclusion"
-    exclusiveZone: Config.theme.hud.border.width
-    mask: Region {}
-  }
+    component ExclusiveZone: ArcWindow {
+        screen: root.screen
+        name: "border-exclusion"
+        exclusiveZone: Config.theme.hud.border.width
+        mask: Region {}
+    }
 }

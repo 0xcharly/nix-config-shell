@@ -4,12 +4,12 @@ import qs.services
 import Quickshell
 
 Singleton {
-  property bool showOsd: false
-  property bool showControlCenter: false
+    property bool showOsd: false
+    property bool showControlCenter: false
 
-  property var screens: new Map()
+    property var screens: new Map()
 
-  function load(screen: ShellScreen, state: var): void {
-    screens.set(Hypr.monitorFor(screen), state);
-  }
+    function load(screen: ShellScreen, state: var): void {
+        screens.set(Hypr.monitorFor(screen), state);
+    }
 }
