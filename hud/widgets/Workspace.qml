@@ -5,7 +5,7 @@ import qs.components
 import qs.services
 import QtQuick
 
-AnimatedRectangle {
+ArcRectangle {
     id: root
 
     required property int index
@@ -42,7 +42,7 @@ AnimatedRectangle {
         onExited: root.isHovered = false
     }
 
-    AnimatedText {
+    ArcText {
         id: layout
 
         anchors.fill: parent

@@ -6,7 +6,7 @@ import qs.config
 import QtQuick
 import QtQuick.Layouts
 
-AnimatedRectangle {
+ArcRectangle {
     id: root
 
     // Layout.fillWidth: true
@@ -32,7 +32,7 @@ AnimatedRectangle {
         spacing: root.theme.verticalSpacing
 
         // Icon
-        AnimatedRectangle {
+        ArcRectangle {
             implicitWidth: implicitHeight
             implicitHeight: icon.implicitHeight + root.theme.icon.padding.top + root.theme.padding.bottom
 
@@ -55,7 +55,7 @@ AnimatedRectangle {
             Layout.fillWidth: true
             spacing: 0
 
-            AnimatedText {
+            ArcText {
                 Layout.fillWidth: true
                 text: qsTr("Keep Awake")
                 color: root.theme.surface.colors.content
@@ -63,7 +63,7 @@ AnimatedRectangle {
                 elide: Text.ElideRight
             }
 
-            AnimatedText {
+            ArcText {
                 Layout.fillWidth: true
                 text: IdleInhibitor.enabled ? qsTr("Preventing sleep mode") : qsTr("Normal power management")
                 color: root.theme.bodyContentColor
@@ -72,7 +72,7 @@ AnimatedRectangle {
             }
         }
 
-        AnimatedSwitch {
+        ArcSwitch {
             checked: IdleInhibitor.enabled
             onToggled: IdleInhibitor.enabled = checked
         }
@@ -93,7 +93,7 @@ AnimatedRectangle {
 
         Component.onCompleted: active = Qt.binding(() => opacity > 0)
 
-        sourceComponent: Chip {
+        sourceComponent: ArcChip {
             text: qsTr("Active since %1").arg(Qt.formatTime(IdleInhibitor.enabledSince, "hh:mm"))
             theme: root.theme.activeChip
         }

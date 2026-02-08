@@ -12,7 +12,7 @@ Widget {
     implicitHeight: layout.implicitHeight + 2 * border.width
     implicitWidth: layout.implicitWidth + 2 * border.width
 
-    AnimatedText {
+    ArcText {
         id: layout
 
         anchors.fill: parent

@@ -68,7 +68,7 @@ Variants {
             //     windows: [win]
             // }
 
-            AnimatedRectangle {
+            ArcRectangle {
                 anchors.fill: parent
                 opacity: win.dimmed ? 0.5 : 0
                 color: Config.theme.hud.scrim

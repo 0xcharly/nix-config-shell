@@ -12,7 +12,7 @@ Item {
 
     anchors.fill: parent
 
-    AnimatedRectangle {
+    ArcRectangle {
         anchors.fill: parent
         color: Config.theme.hud.border.color
 

@@ -24,7 +24,7 @@ Widget {
             topPadding: root.theme.padding.top
         }
 
-        AnimatedText {
+        ArcText {
             id: label
 
             bottomPadding: root.theme.padding.bottom

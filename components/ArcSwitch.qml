@@ -15,7 +15,7 @@ Switch {
     implicitHeight: implicitIndicatorHeight
 
     // Container
-    indicator: AnimatedRectangle {
+    indicator: ArcRectangle {
         radius: Config.tokens.system.shapes.cornerFull
         color: root.checked ? root.theme.trackColorChecked : root.theme.trackColorRest
 
@@ -23,7 +23,7 @@ Switch {
         implicitHeight: root.theme.thumbSize + root.theme.thumbPadding.top + root.theme.thumbPadding.bottom
 
         // Thumb
-        AnimatedClippingRectangle {
+        ArcClippingRectangle {
             readonly property real nonAnimWidth: root.pressed ? implicitHeight * 1.3 : implicitHeight
 
             radius: Config.tokens.system.shapes.cornerFull
@@ -35,7 +35,7 @@ Switch {
             anchors.verticalCenter: parent.verticalCenter
 
             // Thumb state overlay
-            AnimatedRectangle {
+            ArcRectangle {
                 anchors.fill: parent
 
                 color: {

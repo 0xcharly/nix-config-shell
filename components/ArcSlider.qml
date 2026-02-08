@@ -11,7 +11,7 @@ Slider {
 
     orientation: Qt.Vertical
 
-    background: AnimatedRectangle {
+    background: ArcRectangle {
         color: Config.theme.hud.osd.slider.inactiveTrackColor
         radius: Config.tokens.system.shapes.cornerFull
 
@@ -19,7 +19,7 @@ Slider {
         width: implicitWidth
         x: root.leftPadding + root.availableWidth / 2 - width / 2
 
-        AnimatedRectangle {
+        ArcRectangle {
             anchors.left: parent.left
             anchors.right: parent.right
 
@@ -47,7 +47,7 @@ Slider {
             level: handleInteraction.containsMouse ? 2 : 1
         }
 
-        AnimatedRectangle {
+        ArcRectangle {
             id: rect
 
             anchors.fill: parent

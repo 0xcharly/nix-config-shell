@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 
 import qs.config
 
-AnimatedText {
+ArcText {
     property real fill
     property int grade: 0
 

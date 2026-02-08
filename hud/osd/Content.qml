@@ -42,7 +42,7 @@ Item {
                 }
             }
 
-            AnimatedSlider {
+            ArcSlider {
                 anchors.fill: parent
 
                 icon: IconLibrary.getVolumeIcon(value, root.muted)
@@ -72,7 +72,7 @@ Item {
                 }
             }
 
-            AnimatedSlider {
+            ArcSlider {
                 anchors.fill: parent
 
                 icon: `brightness_${(Math.round(value * 6) + 1)}`

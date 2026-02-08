@@ -1,7 +1,7 @@
 import qs.config
 import QtQuick
 
-AnimatedRectangle {
+ArcRectangle {
     id: root
 
     required property string text
@@ -13,7 +13,7 @@ AnimatedRectangle {
     radius: root.theme.shape
     color: root.theme.colors.surface
 
-    AnimatedText {
+    ArcText {
         id: text
 
         anchors.centerIn: parent
