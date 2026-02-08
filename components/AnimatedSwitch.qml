@@ -1,13 +1,15 @@
 pragma ComponentBehavior: Bound
-import qs.config
+
 import QtQuick
-import QtQuick.Templates
 import QtQuick.Shapes
+import QtQuick.Templates
+import qs.config
+import qs.config.tokens.component as ComponentTokens
 
 Switch {
     id: root
 
-    property ThemeConfig.SwitchTokens theme: Config.theme.defaults.switches
+    property ComponentTokens.Switch theme: Config.theme.defaults.switches
 
     implicitWidth: implicitIndicatorWidth
     implicitHeight: implicitIndicatorHeight

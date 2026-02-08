@@ -1,6 +1,6 @@
 import Quickshell.Io
 
 JsonObject {
-  // property ComponentTokens components: ComponentTokens {}
+  property ComponentTokens component: ComponentTokens {}
   property SystemTokens system: SystemTokens {}
 }

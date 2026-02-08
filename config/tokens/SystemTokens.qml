@@ -1,5 +1,5 @@
-import qs.config.tokens.system as SystemTokens
 import Quickshell.Io
+import qs.config.tokens.system as SystemTokens
 
 JsonObject {
     property SystemTokens.Animations animations: SystemTokens.Animations {}

@@ -1,5 +1,5 @@
-import Quickshell.Io
 import QtQuick
+import Quickshell.Io
 
 // Defaults from https://primer.style/primitives/storybook/
 JsonObject {

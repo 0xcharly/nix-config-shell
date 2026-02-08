@@ -1,46 +1,53 @@
 import Quickshell.Io
+import qs.config.tokens.types
 
 JsonObject {
     id: root
 
+    property real scale: 1
     property Fonts.Family families: Fonts.Family {}
-    property Fonts.Size sizes: Fonts.Size {}
     property Fonts.Weight weights: Fonts.Weight {}
 
-    property Fonts.Style icon: Fonts.Style {
+    property TypographyValues icon: TypographyValues {
         family: root.families.icon
-        size: root.sizes.large
+        fontSize: 16 * root.scale
+        lineHeight: 20 * root.scale
         weight: root.weights.normal
         italic: false
         underline: false
     }
-    property Fonts.Style smallLabel: Fonts.Style {
+    property TypographyValues smallLabel: TypographyValues {
         family: root.families.sansSerif
-        size: root.sizes.extraSmall
+        fontSize: 8 * root.scale
+        lineHeight: 12 * root.scale
         weight: root.weights.medium
     }
-    property Fonts.Style mediumLabel: Fonts.Style {
+    property TypographyValues mediumLabel: TypographyValues {
         family: root.families.sansSerif
-        size: root.sizes.small
+        fontSize: 10 * root.scale
+        lineHeight: 14 * root.scale
         weight: root.weights.medium
     }
-    property Fonts.Style body: Fonts.Style {
+    property TypographyValues body: TypographyValues {
         family: root.families.sansSerif
-        size: root.sizes.medium
+        fontSize: 12 * root.scale
+        lineHeight: 16 * root.scale
         weight: root.weights.normal
         italic: false
         underline: false
     }
-    property Fonts.Style title: Fonts.Style {
+    property TypographyValues title: TypographyValues {
         family: root.families.sansSerif
-        size: root.sizes.large
+        fontSize: 16 * root.scale
+        lineHeight: 20 * root.scale
         weight: root.weights.normal
         italic: false
         underline: false
     }
-    property Fonts.Style display: Fonts.Style {
+    property TypographyValues display: TypographyValues {
         family: root.families.sansSerif
-        size: root.sizes.extraLarge
+        fontSize: 24 * root.scale
+        lineHeight: 28 * root.scale
         weight: root.weights.normal
         italic: false
         underline: false

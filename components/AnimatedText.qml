@@ -1,13 +1,13 @@
 pragma ComponentBehavior: Bound
 
 import qs.config
-import qs.config.tokens.system as SystemTokens
+import qs.config.tokens.types
 import QtQuick
 
 Text {
     id: root
 
-    property SystemTokens.Fonts.Style style: Config.tokens.system.typography.body
+    property TypographyValues style: Config.tokens.system.typography.body
 
     property bool animate: false
     property string animateProp: "scale"
@@ -18,12 +18,12 @@ Text {
     renderType: Text.NativeRendering
     textFormat: Text.PlainText
     font.family: style.family
-    font.pointSize: style.size.fontSize
+    font.pointSize: style.fontSize
     font.weight: style.weight
     font.underline: style.underline
     font.italic: style.italic
     fontSizeMode: Text.Fit
-    lineHeight: style.size.lineHeight
+    lineHeight: style.lineHeight
     lineHeightMode: Text.FixedHeight
     verticalAlignment: Text.AlignVCenter
 
