@@ -11,9 +11,10 @@ RowLayout {
 
     required property ShellScreen screen
 
-    spacing: Config.theme.hud.widgets.horizontalSpacing
+    spacing: Config.theme.hud.bar.spacedBy
 
     Workspaces {
+        theme: Config.theme.hud.bar.workspaces
         screen: layout.screen
     }
 }

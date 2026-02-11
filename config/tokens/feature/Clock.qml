@@ -1,0 +1,20 @@
+import QtQuick
+import Quickshell.Io
+import qs.config
+import qs.config.tokens.types
+
+JsonObject {
+    property SurfaceColorValues colors: SurfaceColorValues {
+        surface: Config.tokens.system.colors.transparent
+        content: Config.tokens.system.colors.on_surface_variant
+    }
+
+    property TypographyValues typography: Config.tokens.system.typography.mediumLabel
+
+    property PaddingValues padding: PaddingValues {
+        bottom: Config.tokens.system.measurements.extraSmall
+        left: Config.tokens.system.measurements.small
+        right: Config.tokens.system.measurements.small
+        top: Config.tokens.system.measurements.extraSmall
+    }
+}

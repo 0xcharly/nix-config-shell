@@ -1,14 +1,15 @@
 pragma ComponentBehavior: Bound
 
-import qs.config
 import Quickshell.Services.UPower
+import qs.components
+import qs.config.tokens.feature
 
 MaterialIcon {
     id: root
 
-    animate: true
-    property ThemeConfig.Widget theme: Config.theme.hud.widgets.powerManagement
+    property PowerManagementIcon theme
 
+    animate: true
     text: {
         if (!UPower.displayDevice.isLaptopBattery) {
             if (PowerProfiles.profile === PowerProfile.PowerSaver) {
@@ -28,13 +29,13 @@ MaterialIcon {
     }
     color: {
         if (!UPower.onBattery) {
-            root.theme.contentColor;
+            root.theme.colors.content;
         } else if (UPower.displayDevice.percentage > 0.2) {
-            root.theme.contentColor;
+            root.theme.colors.content;
         } else if (UPower.displayDevice.percentage > 0.1) {
-            root.theme.warningContentColor;
+            root.theme.warningColors.content;
         } else {
-            root.theme.criticalContentColor;
+            root.theme.criticalColors.content;
         }
     }
     fill: 1

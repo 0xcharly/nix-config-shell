@@ -1,35 +1,34 @@
 pragma ComponentBehavior: Bound
 
-import qs.config
+import qs.config.tokens.feature
 import qs.components
-import qs.services as Services
+import qs.services as ArcServices
 import QtQuick
 
-Widget {
+ArcRectangle {
     id: root
-    theme: Config.theme.hud.widgets.clock
 
-    implicitHeight: layout.implicitHeight + 2 * border.width
-    implicitWidth: layout.implicitWidth + 2 * border.width
+    required property Clock theme
+
+    implicitHeight: layout.implicitHeight
+    implicitWidth: layout.implicitWidth
+
+    color: root.theme.colors.surface
+
+    anchors.bottomMargin: root.theme.padding.bottom
+    anchors.leftMargin: root.theme.padding.left
+    anchors.rightMargin: root.theme.padding.right
+    anchors.topMargin: root.theme.padding.top
 
     ArcText {
         id: layout
 
         anchors.fill: parent
-        bottomPadding: root.theme.padding.bottom
-        leftPadding: root.theme.padding.left
-        rightPadding: root.theme.padding.right
-        topPadding: root.theme.padding.top
+        anchors.bottomMargin: 4
 
-        // NOTE: workaround to Japanese characters taller than ASCII.
-        anchors.topMargin: -5
-
-        font.features: {
-            "tnum": 1 // Enables tabular figures
-        }
-
-        color: root.theme.contentColor
+        tabularFigures: true
+        color: root.theme.colors.content
         style: root.theme.typography
-        text: Services.Clock.datetime
+        text: ArcServices.Clock.datetime
     }
 }

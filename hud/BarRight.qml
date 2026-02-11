@@ -11,14 +11,18 @@ RowLayout {
 
     required property ShellScreen screen
 
-    spacing: Config.theme.hud.widgets.horizontalSpacing
+    spacing: Config.theme.hud.bar.spacedBy
 
     Loader {
         asynchronous: true
-        visible: Config.theme.hud.widgets.powerManagement.enable
+        visible: Config.theme.hud.bar.power.enable
 
-        sourceComponent: PowerManagement {}
+        sourceComponent: PowerManagement {
+            theme: Config.theme.hud.bar.power
+        }
     }
 
-    Clock {}
+    Clock {
+        theme: Config.theme.hud.bar.clock
+    }
 }

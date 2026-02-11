@@ -3,6 +3,8 @@ import Quickshell.Io
 
 // Defaults from https://primer.style/primitives/storybook/
 JsonObject {
+    property color transparent: "#00000000"
+
     property color on_surface: "#f0f6fc" // fgColor-default
     property color on_surface_variant: "#9198a1" // fgColor-muted
     property color surface: "#0d1117" // bgColor-default
@@ -59,4 +61,7 @@ JsonObject {
     property color surface_control_slider_active_track: "#1f6feb" // bgColor-accent-emphasis
     property color surface_control_slider_inactive_track: "#1a388bfd" // bgColor-accent-muted
     property color surface_control_slider_thumb: "#4493f8"
+
+    property color border_clock: "#656c76" // borderColor-neutral-emphasis
+    property color surface_clock: "#33656c76" // bgColor-neutral-muted
 }

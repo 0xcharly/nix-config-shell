@@ -16,13 +16,18 @@ Item {
 
     implicitHeight: Config.theme.hud.barHeight
 
+    Rectangle {
+        anchors.fill: layout
+        color: Config.theme.hud.border.color
+    }
+
     RowLayout {
         id: layout
         anchors.fill: parent
 
         BarLeft {
             screen: root.screen
-            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
             Layout.leftMargin: Config.theme.hud.border.width
         }
         BarRight {

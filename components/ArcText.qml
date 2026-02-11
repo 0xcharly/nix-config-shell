@@ -14,6 +14,7 @@ Text {
     property real animateFrom: 0
     property real animateTo: 1
     property int animateDuration: Config.tokens.system.animations.durations.normal
+    property bool tabularFigures: false
 
     renderType: Text.NativeRendering
     textFormat: Text.PlainText
@@ -23,6 +24,9 @@ Text {
     font.underline: style.underline
     font.italic: style.italic
     fontSizeMode: Text.Fit
+    font.features: {
+        "tnum": root.tabularFigures ? 1 : 0
+    }
     lineHeight: style.lineHeight
     lineHeightMode: Text.FixedHeight
     verticalAlignment: Text.AlignVCenter

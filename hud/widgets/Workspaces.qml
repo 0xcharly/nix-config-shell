@@ -1,21 +1,22 @@
 pragma ComponentBehavior: Bound
 
-import qs.config
+import qs.config.tokens.feature as FeatureTokens
+import qs.components
 import qs.services
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
-Widget {
+ArcRectangle {
     id: root
 
     required property ShellScreen screen
+    required property FeatureTokens.Workspaces theme
+
     readonly property int activeWsId: Hypr.monitorFor(screen)?.activeWorkspace?.id ?? 1
 
-    theme: Config.theme.hud.widgets.workspaces
-
-    implicitHeight: layout.implicitHeight + 2 * border.width
-    implicitWidth: layout.implicitWidth + 2 * border.width
+    implicitHeight: layout.implicitHeight
+    implicitWidth: layout.implicitWidth
 
     MouseArea {
         anchors.fill: layout
@@ -38,7 +39,9 @@ Widget {
             id: workspaces
             model: Hypr.workspacesFor(root.screen)
 
-            Workspace {}
+            Workspace {
+                parentTheme: root.theme
+            }
         }
     }
 }

@@ -3,19 +3,22 @@ import QtQuick
 import Quickshell.Io
 import qs.config
 import qs.config.tokens.component as ComponentTokens
+import qs.config.tokens.feature as FeatureTokens
 import qs.config.tokens.types
 
 JsonObject {
     property ComponentDefaults defaults: ComponentDefaults {}
     property Hud hud: Hud {}
 
+    property FeatureTokens.Desktop desktop: FeatureTokens.Desktop {}
+
     component Hud: JsonObject {
-        property Border border: Border {
+        property BorderValues border: BorderValues {
             color: Config.tokens.system.colors.surface
             shape: Config.tokens.system.shapes.cornerSmall
             width: Config.tokens.system.measurements.small
         }
-        property Widgets widgets: Widgets {}
+        property Bar bar: Bar {}
         property ControlCenter controlCenter: ControlCenter {}
         property Osd osd: Osd {}
         property color scrim: Qt.alpha(border.color, 0.2)
@@ -25,93 +28,12 @@ JsonObject {
         property int barHeight: 32
     }
 
-    component Border: JsonObject {
-        property int width: 0
-        property color color: Config.tokens.system.colors.surface
-        property int shape: 0
-    }
+    component Bar: JsonObject {
+        property int spacedBy: Config.tokens.system.measurements.extraSmall
 
-    component Widgets: JsonObject {
-        property int horizontalSpacing: Config.tokens.system.measurements.extraSmall
-        property Widget base: Widget {}
-        property PowerManagement powerManagement: PowerManagement {}
-        property Clock clock: Clock {}
-        property Workspaces workspaces: Workspaces {}
-    }
-
-    component Widget: JsonObject {
-        property bool enable: true
-        property color color: Config.theme.hud.border.color
-        property color contentColor: Config.tokens.system.colors.on_surface_variant
-        property TypographyValues typography: Config.tokens.system.typography.mediumLabel
-        property int spacedBy: Config.tokens.system.measurements.small
-        property PaddingValues padding: PaddingValues {}
-        property Border border: Border {}
-    }
-
-    component PowerManagement: Widget {
-        enable: false
-        spacedBy: Config.tokens.system.measurements.extraSmall
-        color: Config.theme.hud.border.color
-        property color warningColor: Config.tokens.system.colors.surface_attention
-        property color warningContentColor: Config.tokens.system.colors.on_surface_attention
-        property color criticalColor: Config.tokens.system.colors.surface_danger
-        property color criticalContentColor: Config.tokens.system.colors.on_surface_danger
-        padding: PaddingValues {
-            bottom: Config.tokens.system.measurements.extraSmall
-            left: Config.tokens.system.measurements.small
-            right: Config.tokens.system.measurements.small
-            top: Config.tokens.system.measurements.extraSmall
-        }
-    }
-
-    component Clock: Widget {
-        color: Config.theme.hud.border.color
-        padding: PaddingValues {
-            bottom: Config.tokens.system.measurements.extraSmall
-            left: Config.tokens.system.measurements.small
-            right: Config.tokens.system.measurements.small
-            top: Config.tokens.system.measurements.extraSmall
-        }
-    }
-
-    component Workspaces: Widget {
-        spacedBy: Config.tokens.system.measurements.none
-
-        property Workspace inactive: Workspace {
-            color: Config.theme.hud.border.color
-            contentColor: Config.tokens.system.colors.on_surface_variant
-        }
-
-        property Workspace active: Workspace {
-            color: Config.tokens.system.colors.surface_accent
-            contentColor: Config.tokens.system.colors.on_surface_accent
-        }
-
-        property Workspace hovered: Workspace {
-            color: Config.tokens.system.colors.surface_done
-            contentColor: Config.tokens.system.colors.on_surface_done
-        }
-
-        property Workspace needsAttention: Workspace {
-            color: Config.tokens.system.colors.surface_danger
-            contentColor: Config.tokens.system.colors.on_surface_danger
-        }
-    }
-
-    component Workspace: JsonObject {
-        property color color
-        property color contentColor
-        property Border border: Border {
-            shape: Config.tokens.system.shapes.cornerSmall
-        }
-        property TypographyValues typography: Config.tokens.system.typography.mediumLabel
-        property PaddingValues padding: PaddingValues {
-            bottom: Config.tokens.system.measurements.extraSmall
-            left: Config.tokens.system.measurements.small
-            right: Config.tokens.system.measurements.small
-            top: Config.tokens.system.measurements.extraSmall
-        }
+        property FeatureTokens.Clock clock: FeatureTokens.Clock {}
+        property FeatureTokens.PowerManagement power: FeatureTokens.PowerManagement {}
+        property FeatureTokens.Workspaces workspaces: FeatureTokens.Workspaces {}
     }
 
     component ControlCenter: JsonObject {

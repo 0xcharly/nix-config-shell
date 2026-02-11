@@ -44,7 +44,7 @@ JsonObject {
         italic: false
         underline: false
     }
-    property TypographyValues display: TypographyValues {
+    property TypographyValues headline: TypographyValues {
         family: root.families.sansSerif
         fontSize: 24 * root.scale
         lineHeight: 28 * root.scale

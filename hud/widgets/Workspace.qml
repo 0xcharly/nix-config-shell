@@ -1,6 +1,6 @@
 pragma ComponentBehavior: Bound
 
-import qs.config
+import qs.config.tokens.feature
 import qs.components
 import qs.services
 import QtQuick
@@ -11,24 +11,25 @@ ArcRectangle {
     required property int index
     required property var modelData
 
+    required property Workspaces parentTheme
+
     property bool isHovered: false
     property bool needsAttention: false
-    readonly property ThemeConfig.Workspace theme: {
-        if (needsAttention) {
-            Config.theme.hud.widgets.workspaces.needsAttention;
-        } else if (isHovered) {
-            Config.theme.hud.widgets.workspaces.hovered;
+
+    readonly property Workspace theme: {
+        if (root.needsAttention) {
+            root.parentTheme.needsAttention;
+        } else if (root.isHovered) {
+            root.parentTheme.hovered;
         } else if (Hypr.isWorkspaceActive(modelData)) {
-            Config.theme.hud.widgets.workspaces.active;
+            root.parentTheme.active;
         } else {
-            Config.theme.hud.widgets.workspaces.inactive;
+            root.parentTheme.inactive;
         }
     }
 
-    color: theme.color
-    border.color: theme.border.color
-    border.width: theme.border.width
-    radius: theme.border.shape
+    color: root.theme.colors.surface
+    radius: root.theme.shape
 
     implicitHeight: layout.implicitHeight
     implicitWidth: layout.implicitWidth
@@ -51,7 +52,8 @@ ArcRectangle {
         rightPadding: root.theme.padding.right
         topPadding: root.theme.padding.top
 
-        color: root.theme.contentColor
+        tabularFigures: true
+        color: root.theme.colors.content
         style: root.theme.typography
         text: Hypr.getWorkspaceName(root.modelData)
     }

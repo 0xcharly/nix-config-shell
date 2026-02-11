@@ -1,41 +1,41 @@
 pragma ComponentBehavior: Bound
 
-import qs.config
+import qs.config.tokens.feature as FeatureTokens
 import qs.components
 import Quickshell.Services.UPower
 import QtQuick
 import QtQuick.Layouts
 
-Widget {
+ArcRectangle {
     id: root
-    theme: Config.theme.hud.widgets.powerManagement
 
-    implicitHeight: layout.implicitHeight + 2 * border.width
-    implicitWidth: layout.implicitWidth + 2 * border.width
+    required property FeatureTokens.PowerManagement theme
+
+    implicitHeight: layout.implicitHeight
+    implicitWidth: layout.implicitWidth
+
+    color: root.theme.colors.surface
+
+    anchors.bottomMargin: root.theme.padding.bottom
+    anchors.leftMargin: root.theme.padding.left
+    anchors.rightMargin: root.theme.padding.right
+    anchors.topMargin: root.theme.padding.top
 
     RowLayout {
         id: layout
         spacing: root.theme.spacedBy
 
         anchors.fill: parent
+
         PowerManagementIcon {
-            bottomPadding: root.theme.padding.bottom
-            leftPadding: root.theme.padding.left
-            topPadding: root.theme.padding.top
+            theme: root.theme.icon
         }
 
         ArcText {
             id: label
 
-            bottomPadding: root.theme.padding.bottom
-            rightPadding: root.theme.padding.right
-            topPadding: root.theme.padding.top
-
-            font.features: {
-                "tnum": 1 // Enables tabular figures
-            }
-
-            color: root.theme.contentColor
+            tabularFigures: true
+            color: root.theme.colors.content
             style: root.theme.typography
             text: `${Math.round(UPower.displayDevice.percentage * 100)}%`
         }
