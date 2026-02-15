@@ -29,7 +29,7 @@ JsonObject {
     }
 
     component Bar: JsonObject {
-        property int spacedBy: Config.tokens.system.measurements.extraSmall
+        property int spacedBy: Config.tokens.system.measurements.medium
 
         property FeatureTokens.Clock clock: FeatureTokens.Clock {}
         property FeatureTokens.PowerManagement power: FeatureTokens.PowerManagement {}

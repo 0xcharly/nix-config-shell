@@ -24,7 +24,7 @@ ArcRectangle {
         id: layout
 
         anchors.fill: parent
-        anchors.bottomMargin: 4
+        anchors.bottomMargin: 5
 
         tabularFigures: true
         color: root.theme.colors.content
