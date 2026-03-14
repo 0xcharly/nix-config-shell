@@ -41,16 +41,4 @@ Item {
             radius: Config.theme.hud.border.shape
         }
     }
-
-    Rectangle {
-        anchors.fill: parent
-        anchors.margins: Config.theme.hud.border.width
-        anchors.bottomMargin: root.bar.implicitHeight
-
-        color: "transparent"
-
-        border.color: Config.theme.hud.innerBorderColor
-        border.width: 1
-        radius: Config.theme.hud.border.shape
-    }
 }

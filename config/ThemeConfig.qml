@@ -22,8 +22,14 @@ JsonObject {
         property ControlCenter controlCenter: ControlCenter {}
         property Osd osd: Osd {}
         property color scrim: Qt.alpha(border.color, 0.2)
-        property color innerBorderShadow: Config.tokens.system.colors.inner_border_shadow
-        property color innerBorderColor: Config.tokens.system.colors.inner_border
+        property BorderStrokeValues innerBorder: BorderStrokeValues {
+            property color color: Config.tokens.system.colors.inner_border
+            property color shadow: Config.tokens.system.colors.inner_border_shadow
+        }
+        property BorderStrokeValues innerBorderFullscreen: BorderStrokeValues {
+            property color color: Config.tokens.system.colors.inner_border_fullscreen
+            property color shadow: Config.tokens.system.colors.inner_border_shadow_fullscreen
+        }
         property real opacity: 1
         property int barHeight: 32
     }

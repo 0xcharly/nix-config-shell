@@ -55,8 +55,11 @@ JsonObject {
     property color surface_control_thumb_checked_active: "#332ea043"
     property color surface_control_thumb_checked_hover: "#262ea043" // bgColor-success-muted
 
-    property color inner_border: "#8250df" // borderColor-done-emphasis
-    property color inner_border_shadow: "#c297ff" // borderColor-done-muted
+    property color inner_border: "#8957e5" // borderColor-done-emphasis
+    property color inner_border_shadow: "#4c3c71" // borderColor-done-muted
+
+    property color inner_border_fullscreen: "#da3633" // borderColor-danger-emphasis
+    property color inner_border_shadow_fullscreen: "#6b2a2b" // borderColor-danger-muted
 
     property color surface_control_slider_active_track: "#1f6feb" // bgColor-accent-emphasis
     property color surface_control_slider_inactive_track: "#1a388bfd" // bgColor-accent-muted

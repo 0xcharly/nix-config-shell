@@ -8,12 +8,14 @@ ShapePath {
     id: root
 
     required property Osd.Wrapper wrapper
+    required property bool hasFullscreen
+
     readonly property real rounding: Config.theme.hud.border.shape
     readonly property bool flatten: wrapper.width < rounding * 2
     readonly property real roundingX: flatten ? wrapper.width / 2 : rounding
 
-    strokeWidth: -1
-    strokeColor: Config.theme.hud.innerBorderColor
+    strokeWidth: 1
+    strokeColor: hasFullscreen ? Config.theme.hud.innerBorderFullscreen.color : Config.theme.hud.innerBorder.color
     fillColor: Config.theme.hud.border.color
 
     PathArc {

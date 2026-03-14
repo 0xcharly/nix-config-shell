@@ -2,21 +2,25 @@ pragma ComponentBehavior: Bound
 
 import qs.config
 import qs.components
+import qs.services
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
 import QtQuick.Effects
+import Quickshell.Hyprland
 
 Variants {
     model: Quickshell.screens
 
     Scope {
-        id: scope
-
+        id: screen
         required property ShellScreen modelData
 
+        property HyprlandWorkspace workspace: Hypr.monitorFor(modelData).activeWorkspace
+        property bool hasFullscreen: workspace?.hasFullscreen ?? false
+
         HudExclusiveZones {
-            screen: scope.modelData
+            screen: screen.modelData
             bar: bar
         }
 
@@ -24,7 +28,7 @@ Variants {
             id: win
 
             name: "hud"
-            screen: scope.modelData
+            screen: screen.modelData
             WlrLayershell.exclusionMode: ExclusionMode.Ignore
             WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
@@ -81,39 +85,53 @@ Variants {
             Item {
                 anchors.fill: parent
                 opacity: Config.theme.hud.opacity
+
+                // HUD colored inner shadow.
                 layer.enabled: true
                 layer.effect: MultiEffect {
                     shadowEnabled: true
                     blurMax: 64
                     shadowBlur: 0.3
-                    shadowColor: Config.theme.hud.innerBorderShadow
+                    shadowColor: screen.hasFullscreen ? Config.theme.hud.innerBorderFullscreen.shadow : Config.theme.hud.innerBorder.shadow
                 }
 
-                HudBorder {
-                    bar: bar
+                // HUD colored inner border.
+                Rectangle {
+                    anchors.fill: parent
+                    anchors.margins: Config.theme.hud.border.width
+                    anchors.bottomMargin: bar.implicitHeight
+                    color: "transparent"
+                    border.color: screen.hasFullscreen ? Config.theme.hud.innerBorderFullscreen.color : Config.theme.hud.innerBorder.color
+                    border.width: 1
+                    radius: Config.theme.hud.border.shape
                 }
 
                 Drawers {
                     bar: bar
                     panels: panels
+                    hasFullscreen: screen.hasFullscreen
+                }
+
+                HudBorder {
+                    bar: bar
                 }
             }
 
             Interactions {
-                screen: scope.modelData
+                screen: screen.modelData
                 panels: panels
                 bar: bar
 
                 Panels {
                     id: panels
 
-                    screen: scope.modelData
+                    screen: screen.modelData
                     bar: bar
                 }
 
                 Bar {
                     id: bar
-                    screen: scope.modelData
+                    screen: screen.modelData
 
                     anchors.left: parent.left
                     anchors.right: parent.right
