@@ -5,10 +5,10 @@ import qs.config.tokens.types
 
 JsonObject {
     property SurfaceColorValues colors: SurfaceColorValues {
-        surface: Config.tokens.system.colors.transparent
+        surface: Config.tokens.system.colors.wallpaper
         content: Config.tokens.system.colors.on_surface
     }
 
-    property bool animateWallpaper: false
     property DesktopClock clock: DesktopClock {}
+    property DesktopLicense license: DesktopLicense {}
 }

@@ -5,21 +5,22 @@ import Quickshell.Io
 JsonObject {
     property color transparent: "#00000000"
 
-    property color on_surface: "#f0f6fc" // fgColor-default
-    property color on_surface_variant: "#9198a1" // fgColor-muted
-    property color surface: "#0d1117" // bgColor-default
+    property color on_surface: "#d4d4d8" // zinc-300
+    property color on_surface_variant: "#a1a1aa" // zinc-400
+    property color surface: "#09090b" // zinc-950
+    property color wallpaper: "#18181b" // zinc-900
 
-    property color surface_danger: "#1af85149" // bgColor-danger-muted
-    property color on_surface_danger: "#f85149" // fgColor-danger
+    property color surface_danger: "#1af87171" // red-400 @ 10%
+    property color on_surface_danger: "#f87171" // red-400
 
-    property color surface_attention: "#26bb8009" // bgColor-attention-muted
-    property color on_surface_attention: "#d29922" // fgColor-attention
+    property color surface_attention: "#26fb923c" // orange-400 @ 38%
+    property color on_surface_attention: "#fb923c" // orange-400
 
-    property color surface_accent: "#1a388bfd" // bgColor-accent-muted
-    property color on_surface_accent: "#4493f8" // fgColor-accent
+    property color surface_accent: "#1a60a5fa" // blue-400 @ 10%
+    property color on_surface_accent: "#60a5fa" // blue-400
 
-    property color surface_done: "#26ab7df8" // bgColor-done-muted
-    property color on_surface_done: "#ab7df8" // fgColor-done
+    property color surface_done: "#26a78bfa" // violet-400 @ 38%
+    property color on_surface_done: "#a78bfa" // violet-400
 
     property color surface_backdrop: "#66212830" // overlay-backdrop-bgColor
 
@@ -55,15 +56,15 @@ JsonObject {
     property color surface_control_thumb_checked_active: "#332ea043"
     property color surface_control_thumb_checked_hover: "#262ea043" // bgColor-success-muted
 
-    property color inner_border: "#8957e5" // borderColor-done-emphasis
-    property color inner_border_shadow: "#4c3c71" // borderColor-done-muted
+    property color inner_border: "#8b5cf6" // violet-500
+    property color inner_border_shadow: "#4c1d95" // violet-900
 
-    property color inner_border_fullscreen: "#da3633" // borderColor-danger-emphasis
-    property color inner_border_shadow_fullscreen: "#6b2a2b" // borderColor-danger-muted
+    property color inner_border_fullscreen: "#ef4444" // red-500
+    property color inner_border_shadow_fullscreen: "#7f1d1d" // red-900
 
-    property color surface_control_slider_active_track: "#1f6feb" // bgColor-accent-emphasis
-    property color surface_control_slider_inactive_track: "#1a388bfd" // bgColor-accent-muted
-    property color surface_control_slider_thumb: "#4493f8"
+    property color surface_control_slider_active_track: "#1d4ed8" // blue-700
+    property color surface_control_slider_inactive_track: "#1a3b82f6" // blue-500 @ 10%
+    property color surface_control_slider_thumb: "#3b82f6" // blue-500
 
     property color border_clock: "#656c76" // borderColor-neutral-emphasis
     property color surface_clock: "#33656c76" // bgColor-neutral-muted

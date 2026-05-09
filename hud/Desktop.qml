@@ -31,23 +31,15 @@ Variants {
         anchors.left: true
         anchors.right: true
 
-        Wallpaper {
-            id: wallpaper
+        DesktopLicense {
+            id: license
+            theme: root.theme.license
 
-            anchors.fill: parent
-            wallpaperAnimationEnabled: root.theme.animateWallpaper
-        }
+            absX: license.x
+            absY: license.y
 
-        DesktopClock {
-            id: clock
-            theme: root.theme.clock
-
-            absX: clock.x
-            absY: clock.y
-            wallpaper: wallpaper
-
-            anchors.right: parent.right
-            anchors.top: parent.top
+            anchors.left: parent.left
+            anchors.bottom: parent.bottom
         }
     }
 }
