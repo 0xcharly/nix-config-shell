@@ -23,7 +23,7 @@ JsonObject {
     property BorderValues borders: BorderValues {
         color: Config.tokens.system.colors.border_clock
         shape: Config.tokens.system.shapes.cornerSquare
-        width: Config.tokens.system.measurements.extraExtraSmall
+        width: Config.tokens.system.measurements.twoExtraSmall
     }
 
     property PaddingValues padding: PaddingValues {

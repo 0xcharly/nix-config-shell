@@ -15,7 +15,7 @@ Item {
 
     anchors.fill: parent
     anchors.margins: Config.theme.hud.border.width
-    anchors.bottomMargin: bar.implicitHeight
+    anchors.leftMargin: bar.implicitWidth
 
     ControlCenter.Wrapper {
         id: controlCenter

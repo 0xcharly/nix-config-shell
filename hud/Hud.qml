@@ -6,7 +6,6 @@ import qs.services
 import Quickshell
 import Quickshell.Wayland
 import QtQuick
-import QtQuick.Effects
 import Quickshell.Hyprland
 
 Variants {
@@ -17,7 +16,6 @@ Variants {
         required property ShellScreen modelData
 
         property HyprlandWorkspace workspace: Hypr.monitorFor(modelData).activeWorkspace
-        property bool hasFullscreen: workspace?.hasFullscreen ?? false
 
         HudExclusiveZones {
             screen: screen.modelData
@@ -32,13 +30,11 @@ Variants {
             WlrLayershell.exclusionMode: ExclusionMode.Ignore
             WlrLayershell.keyboardFocus: WlrKeyboardFocus.None
 
-            property bool dimmed: false
-
             mask: Region {
-                x: Config.theme.hud.border.width
-                y: Config.theme.hud.border.width
-                width: win.width - Config.theme.hud.border.width * 2
-                height: win.height - bar.implicitHeight - Config.theme.hud.border.width
+                x: bar.implicitWidth
+                y: Config.theme.hud.border.width + 1
+                width: win.width - bar.implicitWidth - Config.theme.hud.border.width - 1
+                height: win.height - Config.theme.hud.border.width * 2 - 2
                 intersection: Intersection.Xor
 
                 regions: regions.instances
@@ -57,7 +53,7 @@ Variants {
                 Region {
                     required property Item modelData
 
-                    x: modelData.x + Config.theme.hud.border.width
+                    x: modelData.x + bar.implicitWidth
                     y: modelData.y + Config.theme.hud.border.width
                     width: modelData.width
                     height: modelData.height
@@ -65,51 +61,13 @@ Variants {
                 }
             }
 
-            // HyprlandFocusGrab {
-            //     id: focusGrab
-            //
-            //     active: false
-            //     windows: [win]
-            // }
-
-            ArcRectangle {
-                anchors.fill: parent
-                opacity: win.dimmed ? 0.5 : 0
-                color: Config.theme.hud.scrim
-
-                Behavior on opacity {
-                    AnimatedNumber {}
-                }
-            }
-
             Item {
                 anchors.fill: parent
                 opacity: Config.theme.hud.opacity
 
-                // HUD colored inner shadow.
-                layer.enabled: true
-                layer.effect: MultiEffect {
-                    shadowEnabled: true
-                    blurMax: 64
-                    shadowBlur: 0.3
-                    shadowColor: screen.hasFullscreen ? Config.theme.hud.innerBorderFullscreen.shadow : Config.theme.hud.innerBorder.shadow
-                }
-
-                // HUD colored inner border.
-                Rectangle {
-                    anchors.fill: parent
-                    anchors.margins: Config.theme.hud.border.width
-                    anchors.bottomMargin: bar.implicitHeight
-                    color: "transparent"
-                    border.color: screen.hasFullscreen ? Config.theme.hud.innerBorderFullscreen.color : Config.theme.hud.innerBorder.color
-                    border.width: 1
-                    radius: Config.theme.hud.border.shape
-                }
-
                 Drawers {
                     bar: bar
                     panels: panels
-                    hasFullscreen: screen.hasFullscreen
                 }
 
                 HudBorder {
@@ -133,8 +91,8 @@ Variants {
                     id: bar
                     screen: screen.modelData
 
-                    anchors.left: parent.left
-                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
                 }
             }
         }

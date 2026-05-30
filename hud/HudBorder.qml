@@ -37,7 +37,7 @@ Item {
             id: m
             anchors.fill: parent
             anchors.margins: Config.theme.hud.border.width
-            anchors.bottomMargin: root.bar.implicitHeight
+            anchors.leftMargin: root.bar.implicitWidth
             radius: Config.theme.hud.border.shape
         }
     }

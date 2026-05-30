@@ -15,25 +15,33 @@ ArcRectangle {
 
     readonly property int activeWsId: Hypr.monitorFor(screen)?.activeWorkspace?.id ?? 1
 
-    implicitHeight: layout.implicitHeight
-    implicitWidth: layout.implicitWidth
+    implicitHeight: layout.implicitHeight + root.theme.padding.top + root.theme.padding.bottom
+    implicitWidth: layout.implicitWidth + root.theme.padding.left + root.theme.padding.right
+
+    Layout.bottomMargin: root.theme.padding.bottom
+    Layout.leftMargin: root.theme.padding.left
+    Layout.rightMargin: root.theme.padding.right
+    Layout.topMargin: root.theme.padding.top
 
     MouseArea {
         anchors.fill: layout
 
         onWheel: event => {
-            if (event.angleDelta.y > 0) {
+            if (event.angleDelta.y < 0) {
                 Hypr.goToNextOccupiedWorkspace();
-            } else if (event.angleDelta.y < 0) {
+            } else if (event.angleDelta.y > 0) {
                 Hypr.goToPreviousOccupiedWorkspace();
             }
             event.accepted = true;
         }
     }
 
-    RowLayout {
+    ColumnLayout {
         id: layout
         spacing: root.theme.spacedBy
+
+        anchors.left: parent.left
+        anchors.right: parent.right
 
         Repeater {
             id: workspaces
@@ -41,6 +49,7 @@ ArcRectangle {
 
             Workspace {
                 parentTheme: root.theme
+                Layout.alignment: Qt.AlignHCenter
             }
         }
     }

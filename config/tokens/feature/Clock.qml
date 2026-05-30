@@ -9,12 +9,13 @@ JsonObject {
         content: Config.tokens.system.colors.on_surface_variant
     }
 
+    property int spacing: Config.tokens.system.measurements.large
     property TypographyValues typography: Config.tokens.system.typography.mediumLabel
 
     property PaddingValues padding: PaddingValues {
         bottom: Config.tokens.system.measurements.extraSmall
-        left: Config.tokens.system.measurements.small
-        right: Config.tokens.system.measurements.small
+        left: Config.tokens.system.measurements.none
+        right: Config.tokens.system.measurements.none
         top: Config.tokens.system.measurements.extraSmall
     }
 }

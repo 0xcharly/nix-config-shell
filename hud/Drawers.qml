@@ -9,24 +9,21 @@ Shape {
 
     required property Panels panels
     required property Item bar
-    required property bool hasFullscreen
 
     anchors.fill: parent
     anchors.margins: Config.theme.hud.border.width
-    anchors.bottomMargin: bar.implicitHeight
+    anchors.leftMargin: bar.implicitWidth
     preferredRendererType: Shape.CurveRenderer
 
     ControlCenter.Drawer {
         wrapper: root.panels.controlCenter
-        hasFullscreen: root.hasFullscreen
 
         startX: root.width
-        startY: root.height + 1
+        startY: root.height
     }
 
     Osd.Drawer {
         wrapper: root.panels.osd
-        hasFullscreen: root.hasFullscreen
 
         startX: root.width
         startY: (root.height - wrapper.height) / 2 - rounding

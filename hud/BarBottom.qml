@@ -6,7 +6,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
-RowLayout {
+ColumnLayout {
     id: layout
 
     required property ShellScreen screen
@@ -19,10 +19,12 @@ RowLayout {
 
         sourceComponent: PowerManagement {
             theme: Config.theme.hud.bar.power
+            Layout.alignment: Qt.AlignHCenter
         }
     }
 
     Clock {
         theme: Config.theme.hud.bar.clock
+        Layout.alignment: Qt.AlignHCenter
     }
 }

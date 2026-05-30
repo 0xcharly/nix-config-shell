@@ -10,30 +10,27 @@ Item {
 
     required property ShellScreen screen
 
-    readonly property int exclusiveZone: implicitHeight
+    readonly property int exclusiveZone: implicitWidth
 
-    anchors.bottom: parent.bottom
+    anchors.left: parent.left
 
-    implicitHeight: Config.theme.hud.barHeight
+    implicitWidth: Config.theme.hud.barWidth
 
-    Rectangle {
-        anchors.fill: layout
-        color: Config.theme.hud.border.color
-    }
-
-    RowLayout {
+    ColumnLayout {
         id: layout
         anchors.fill: parent
 
-        BarLeft {
+        BarTop {
             screen: root.screen
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
-            Layout.leftMargin: Config.theme.hud.border.width
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+            Layout.topMargin: Config.theme.hud.border.width
         }
-        BarRight {
+        BarBottom {
             screen: root.screen
-            Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
-            Layout.rightMargin: Config.theme.hud.border.width
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignHCenter | Qt.AlignBottom
+            Layout.bottomMargin: Config.theme.hud.border.width
         }
     }
 }

@@ -6,7 +6,7 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 
-RowLayout {
+ColumnLayout {
     id: layout
 
     required property ShellScreen screen
@@ -14,6 +14,7 @@ RowLayout {
     spacing: Config.theme.hud.bar.spacedBy
 
     Workspaces {
+        id: workspaces
         theme: Config.theme.hud.bar.workspaces
         screen: layout.screen
     }

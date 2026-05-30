@@ -12,12 +12,12 @@ Scope {
     required property Item bar
 
     ExclusiveZone {
-        anchors.bottom: true
+        anchors.left: true
         exclusiveZone: root.bar.exclusiveZone
     }
 
     ExclusiveZone {
-        anchors.left: true
+        anchors.bottom: true
     }
 
     ExclusiveZone {

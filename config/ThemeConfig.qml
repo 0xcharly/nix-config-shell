@@ -15,8 +15,8 @@ JsonObject {
     component Hud: JsonObject {
         property BorderValues border: BorderValues {
             color: Config.tokens.system.colors.surface
-            shape: Config.tokens.system.shapes.cornerSmall
-            width: Config.tokens.system.measurements.small
+            shape: Config.tokens.system.shapes.cornerExtraLarge
+            width: 0
         }
         property Bar bar: Bar {}
         property ControlCenter controlCenter: ControlCenter {}
@@ -31,11 +31,11 @@ JsonObject {
             property color shadow: Config.tokens.system.colors.inner_border_shadow_fullscreen
         }
         property real opacity: 1
-        property int barHeight: 32
+        property int barWidth: 32
     }
 
     component Bar: JsonObject {
-        property int spacedBy: Config.tokens.system.measurements.medium
+        property int spacedBy: Config.tokens.system.measurements.large
 
         property FeatureTokens.Clock clock: FeatureTokens.Clock {}
         property FeatureTokens.PowerManagement power: FeatureTokens.PowerManagement {}

@@ -16,12 +16,7 @@ ArcRectangle {
 
     color: root.theme.colors.surface
 
-    anchors.bottomMargin: root.theme.padding.bottom
-    anchors.leftMargin: root.theme.padding.left
-    anchors.rightMargin: root.theme.padding.right
-    anchors.topMargin: root.theme.padding.top
-
-    RowLayout {
+    ColumnLayout {
         id: layout
         spacing: root.theme.spacedBy
 
@@ -29,15 +24,17 @@ ArcRectangle {
 
         PowerManagementIcon {
             theme: root.theme.icon
+            Layout.alignment: Qt.AlignHCenter
         }
 
         ArcText {
             id: label
+            Layout.alignment: Qt.AlignHCenter
 
             tabularFigures: true
             color: root.theme.colors.content
             style: root.theme.typography
-            text: `${Math.round(UPower.displayDevice.percentage * 100)}%`
+            text: UPower.displayDevice.state === UPowerDeviceState.FullyCharged ? "∞" : `${Math.round(UPower.displayDevice.percentage * 100)}%`
         }
     }
 }

@@ -8,6 +8,10 @@ JsonObject {
         surface: Config.tokens.system.colors.transparent
         content: Config.tokens.system.colors.on_surface_variant
     }
+    property SurfaceColorValues fullColors: SurfaceColorValues {
+        surface: Config.tokens.system.colors.transparent
+        content: Config.tokens.system.colors.on_surface_success
+    }
     property SurfaceColorValues warningColors: SurfaceColorValues {
         surface: Config.tokens.system.colors.transparent
         content: Config.tokens.system.colors.on_surface_attention

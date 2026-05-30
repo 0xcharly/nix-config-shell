@@ -25,7 +25,7 @@ MouseArea {
 
     function inControlCenterPanel(panel: Item, x: real, y: real): bool {
         const panelY = Config.theme.hud.border.width + panel.y;
-        return y >= panelY /* && y <= panelY + panel.height */ && withinControlCenterPanelWidth(panel, x, y);
+        return y >= panelY - 1 /* && y <= panelY + panel.height */ && withinControlCenterPanelWidth(panel, x, y);
     }
 
     anchors.fill: parent

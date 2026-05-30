@@ -10,6 +10,9 @@ JsonObject {
     property color surface: "#09090b" // zinc-950
     property color wallpaper: "#18181b" // zinc-900
 
+    property color surface_success: "#1a4ade80" // green-400 @ 10%
+    property color on_surface_success: "#4ade80" // green-400
+
     property color surface_danger: "#1af87171" // red-400 @ 10%
     property color on_surface_danger: "#f87171" // red-400
 

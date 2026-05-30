@@ -8,14 +8,12 @@ ShapePath {
     id: root
 
     required property ControlCenter.Wrapper wrapper
-    required property bool hasFullscreen
 
     readonly property real rounding: Config.theme.hud.border.shape
     readonly property bool flatten: wrapper.height < rounding * 2
     readonly property real roundingY: flatten ? wrapper.height / 2 : rounding
 
-    strokeWidth: 1
-    strokeColor: hasFullscreen ? Config.theme.hud.innerBorderFullscreen.color : Config.theme.hud.innerBorder.color
+    strokeWidth: 0
     fillColor: Config.theme.hud.border.color
 
     PathLine {

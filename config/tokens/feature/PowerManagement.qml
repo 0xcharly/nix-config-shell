@@ -6,7 +6,7 @@ import qs.config.tokens.types
 JsonObject {
     property bool enable: false
 
-    property int spacedBy: Config.tokens.system.measurements.extraSmall
+    property int spacedBy: Config.tokens.system.measurements.none
     property PowerManagementIcon icon: PowerManagementIcon {}
 
     property SurfaceColorValues colors: SurfaceColorValues {

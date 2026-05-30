@@ -4,31 +4,65 @@ import qs.config.tokens.feature
 import qs.components
 import qs.services as ArcServices
 import QtQuick
+import QtQuick.Layouts
 
 ArcRectangle {
     id: root
 
     required property Clock theme
 
-    implicitHeight: layout.implicitHeight
-    implicitWidth: layout.implicitWidth
+    implicitHeight: layout.implicitHeight + root.theme.padding.top + root.theme.padding.bottom
+    implicitWidth: layout.implicitWidth + root.theme.padding.left + root.theme.padding.right
 
     color: root.theme.colors.surface
-
     anchors.bottomMargin: root.theme.padding.bottom
     anchors.leftMargin: root.theme.padding.left
     anchors.rightMargin: root.theme.padding.right
     anchors.topMargin: root.theme.padding.top
 
-    ArcText {
+    ColumnLayout {
         id: layout
 
-        anchors.fill: parent
-        anchors.bottomMargin: 5
+        Layout.alignment: Qt.AlignHCenter
+        spacing: root.theme.spacing
 
-        tabularFigures: true
-        color: root.theme.colors.content
-        style: root.theme.typography
-        text: ArcServices.Clock.datetime
+        ColumnLayout {
+            id: date
+            Layout.alignment: Qt.AlignHCenter
+
+            ArcText {
+                Layout.alignment: Qt.AlignHCenter
+                color: root.theme.colors.content
+                style: root.theme.typography
+                text: ArcServices.Clock.dayWeek
+            }
+            ArcText {
+                Layout.alignment: Qt.AlignHCenter
+                tabularFigures: true
+                color: root.theme.colors.content
+                style: root.theme.typography
+                text: ArcServices.Clock.dayMonth
+            }
+        }
+
+        ColumnLayout {
+            id: time
+            Layout.alignment: Qt.AlignHCenter
+
+            ArcText {
+                Layout.alignment: Qt.AlignHCenter
+                tabularFigures: true
+                color: root.theme.colors.content
+                style: root.theme.typography
+                text: ArcServices.Clock.timeHours
+            }
+            ArcText {
+                Layout.alignment: Qt.AlignHCenter
+                tabularFigures: true
+                color: root.theme.colors.content
+                style: root.theme.typography
+                text: ArcServices.Clock.timeMinutes
+            }
+        }
     }
 }

@@ -6,10 +6,10 @@ import qs.config.tokens.types
 JsonObject {
     property int spacedBy: Config.tokens.system.measurements.none
     property PaddingValues padding: PaddingValues {
-        bottom: Config.tokens.system.measurements.extraSmall
-        left: Config.tokens.system.measurements.small
-        right: Config.tokens.system.measurements.small
-        top: Config.tokens.system.measurements.extraSmall
+        bottom: Config.tokens.system.measurements.small
+        left: Config.tokens.system.measurements.none
+        right: Config.tokens.system.measurements.none
+        top: Config.tokens.system.measurements.small
     }
 
     property Workspace inactive: Workspace {

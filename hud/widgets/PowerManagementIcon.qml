@@ -1,5 +1,6 @@
 pragma ComponentBehavior: Bound
 
+import QtQuick
 import Quickshell.Services.UPower
 import qs.components
 import qs.config.tokens.feature
@@ -28,7 +29,9 @@ MaterialIcon {
         return charging ? "battery_android_bolt" : `battery_android_${Math.floor(UPower.displayDevice.percentage * 7)}`;
     }
     color: {
-        if (!UPower.onBattery) {
+        if (!UPower.onBattery && UPower.displayDevice.state === UPowerDeviceState.FullyCharged) {
+            root.theme.fullColors.content;
+        } else if (!UPower.onBattery) {
             root.theme.colors.content;
         } else if (UPower.displayDevice.percentage > 0.2) {
             root.theme.colors.content;
@@ -37,6 +40,12 @@ MaterialIcon {
         } else {
             root.theme.criticalColors.content;
         }
+    }
+    // Rotates the text 90 degrees counter-clockwise
+    transform: Rotation {
+        origin.x: 10
+        origin.y: 12
+        angle: -90
     }
     fill: 1
 }
