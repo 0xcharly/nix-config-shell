@@ -23,7 +23,7 @@ Switch {
         implicitHeight: root.theme.thumbSize + root.theme.thumbPadding.top + root.theme.thumbPadding.bottom
 
         // Thumb
-        ArcClippingRectangle {
+        ArcRectangle {
             readonly property real nonAnimWidth: root.pressed ? implicitHeight * 1.3 : implicitHeight
 
             radius: Config.tokens.system.shapes.cornerFull
@@ -38,6 +38,7 @@ Switch {
             ArcRectangle {
                 anchors.fill: parent
 
+                radius: Config.tokens.system.shapes.cornerFull
                 color: {
                     if (root.checked) {
                         if (root.pressed) {
@@ -55,10 +56,6 @@ Switch {
                     }
 
                     return "transparent";
-                }
-
-                Behavior on color {
-                    AnimatedColor {}
                 }
             }
 
