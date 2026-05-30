@@ -1,11 +1,12 @@
 import qs.config
+import qs.config.tokens.types
 import QtQuick
 
 ArcRectangle {
     id: root
 
     required property string text
-    property ThemeConfig.SurfaceTokens theme: Config.theme.defaults.chips
+    property SurfaceTokens theme: Config.theme.defaults.chips
 
     implicitWidth: text.implicitWidth + root.theme.padding.left + root.theme.padding.right
     implicitHeight: text.implicitHeight + root.theme.padding.top + root.theme.padding.bottom

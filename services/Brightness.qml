@@ -205,7 +205,7 @@ Singleton {
             else if (isDdc)
                 initProc.command = ["ddcutil", "-b", busNum, "getvcp", "10", "--brief"];
             else
-                initProc.command = ["$(brightnessctl g) $(brightnessctl m)"];
+                initProc.command = ["sh", "-c", "echo a b c $(brightnessctl g) $(brightnessctl m)"];
 
             initProc.running = true;
         }

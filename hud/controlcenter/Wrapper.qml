@@ -73,6 +73,9 @@ Item {
 
         Component.onCompleted: active = Qt.binding(() => root.shouldBeActive || root.visible)
 
-        sourceComponent: Content {}
+        sourceComponent: Content {
+            screen: root.screen
+            implicitWidth: 512
+        }
     }
 }

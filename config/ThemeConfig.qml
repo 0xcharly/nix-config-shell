@@ -107,6 +107,7 @@ JsonObject {
     }
 
     component ComponentDefaults: JsonObject {
+        property ComponentTokens.QuickToggle quickToggles: ComponentTokens.QuickToggle {}
         property ComponentTokens.Switch switches: ComponentTokens.Switch {}
         property SurfaceTokens cards: SurfaceTokens {
             colors: SurfaceColorValues {
@@ -136,12 +137,5 @@ JsonObject {
             shape: Config.tokens.system.shapes.cornerFull
             typography: Config.tokens.system.typography.smallLabel
         }
-    }
-
-    component SurfaceTokens: JsonObject {
-        property SurfaceColorValues colors: SurfaceColorValues {}
-        property PaddingValues padding: PaddingValues {}
-        property int shape: Config.tokens.system.shapes.cornerSquare
-        property TypographyValues typography: Config.tokens.system.typography.body
     }
 }

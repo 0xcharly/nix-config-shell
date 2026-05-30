@@ -10,6 +10,7 @@
   hyprland,
   recursive,
   material-symbols,
+  networkmanager,
   rubik,
   nerd-fonts,
   qt6,
@@ -25,6 +26,7 @@
     brightnessctl
     ddcutil
     hyprland
+    networkmanager
   ];
 
   fontconfig = makeFontsConf {

@@ -23,7 +23,7 @@ Text {
     font.weight: style.weight
     font.underline: style.underline
     font.italic: style.italic
-    fontSizeMode: Text.Fit
+    fontSizeMode: Text.FixedSize
     font.features: {
         "tnum": root.tabularFigures ? 1 : 0
     }
