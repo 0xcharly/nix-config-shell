@@ -34,7 +34,7 @@ ArcRectangle {
             tabularFigures: true
             color: root.theme.colors.content
             style: root.theme.typography
-            text: UPower.displayDevice.state === UPowerDeviceState.FullyCharged ? "∞" : `${Math.ceil(UPower.displayDevice.percentage * 100)}%`
+            text: UPower.displayDevice.percentage === 1.0 ? "∞" : `${Math.ceil(UPower.displayDevice.percentage * 100)}%`
         }
     }
 }
