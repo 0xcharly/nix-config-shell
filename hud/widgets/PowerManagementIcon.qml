@@ -22,11 +22,30 @@ MaterialIcon {
             return "balance";
         }
 
-        if (UPower.displayDevice.percentage === 1) {
-            return "battery_android_full";
-        }
         const charging = [UPowerDeviceState.Charging, UPowerDeviceState.FullyCharged, UPowerDeviceState.PendingCharge].includes(UPower.displayDevice.state);
-        return charging ? "battery_android_bolt" : `battery_android_${Math.floor(UPower.displayDevice.percentage * 7)}`;
+        if (charging) {
+          if (UPower.displayDevice.percentage === 1) {
+              return "battery_charging_full";
+          }
+          const level = {
+            0: 20,
+            1: 20,
+            2: 20,
+            3: 30,
+            4: 30,
+            5: 50,
+            6: 60,
+            7: 60,
+            8: 80,
+            9: 90,
+          };
+          return `battery_charging_${level[Math.floor(UPower.displayDevice.percentage * 10)]}`;
+        } else {
+          if (UPower.displayDevice.percentage === 1) {
+              return "battery_full";
+          }
+          return `battery_${Math.floor(UPower.displayDevice.percentage * 7)}_bar`;
+        }
     }
     color: {
         if (!UPower.onBattery && UPower.displayDevice.state === UPowerDeviceState.FullyCharged) {
@@ -40,12 +59,6 @@ MaterialIcon {
         } else {
             root.theme.criticalColors.content;
         }
-    }
-    // Rotates the text 90 degrees counter-clockwise
-    transform: Rotation {
-        origin.x: 10
-        origin.y: 12
-        angle: -90
     }
     fill: 1
 }
