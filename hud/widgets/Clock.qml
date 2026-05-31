@@ -27,25 +27,6 @@ ArcRectangle {
         spacing: root.theme.spacing
 
         ColumnLayout {
-            id: date
-            Layout.alignment: Qt.AlignHCenter
-
-            ArcText {
-                Layout.alignment: Qt.AlignHCenter
-                color: root.theme.colors.content
-                style: root.theme.typography
-                text: ArcServices.Clock.dayWeek
-            }
-            ArcText {
-                Layout.alignment: Qt.AlignHCenter
-                tabularFigures: true
-                color: root.theme.colors.content
-                style: root.theme.typography
-                text: ArcServices.Clock.dayMonth
-            }
-        }
-
-        ColumnLayout {
             id: time
             Layout.alignment: Qt.AlignHCenter
 
@@ -62,6 +43,25 @@ ArcRectangle {
                 color: root.theme.colors.content
                 style: root.theme.typography
                 text: ArcServices.Clock.timeMinutes
+            }
+        }
+
+        ColumnLayout {
+            id: date
+            Layout.alignment: Qt.AlignHCenter
+
+            ArcText {
+                Layout.alignment: Qt.AlignHCenter
+                tabularFigures: true
+                color: root.theme.colors.content
+                style: root.theme.typography
+                text: ArcServices.Clock.dayMonth
+            }
+            ArcText {
+                Layout.alignment: Qt.AlignHCenter
+                color: root.theme.colors.content
+                style: root.theme.typography
+                text: ArcServices.Clock.dayWeek
             }
         }
     }
