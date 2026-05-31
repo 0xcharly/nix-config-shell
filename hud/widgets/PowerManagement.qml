@@ -11,16 +11,23 @@ ArcRectangle {
 
     required property FeatureTokens.PowerManagement theme
 
-    implicitHeight: layout.implicitHeight
-    implicitWidth: layout.implicitWidth
+    implicitHeight: layout.implicitHeight + root.theme.padding.top + root.theme.padding.bottom
+    implicitWidth: layout.implicitWidth + root.theme.padding.left + root.theme.padding.right
 
     color: root.theme.colors.surface
 
     ColumnLayout {
         id: layout
+
+        anchors.centerIn: parent
+
+        Layout.alignment: Qt.AlignHCenter
         spacing: root.theme.spacedBy
 
-        anchors.fill: parent
+        Layout.bottomMargin: root.theme.padding.bottom
+        Layout.leftMargin: root.theme.padding.left
+        Layout.rightMargin: root.theme.padding.right
+        Layout.topMargin: root.theme.padding.top
 
         PowerManagementIcon {
             theme: root.theme.icon

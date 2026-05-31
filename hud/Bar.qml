@@ -13,6 +13,8 @@ Item {
     readonly property int exclusiveZone: implicitWidth
 
     anchors.left: parent.left
+    anchors.topMargin: Config.tokens.system.measurements.small
+    anchors.bottomMargin: Config.tokens.system.measurements.small
 
     implicitWidth: Config.theme.hud.barWidth
 

@@ -17,9 +17,10 @@ ColumnLayout {
         asynchronous: true
         visible: Config.theme.hud.bar.power.enable
 
+        Layout.alignment: Qt.AlignHCenter
+
         sourceComponent: PowerManagement {
             theme: Config.theme.hud.bar.power
-            Layout.alignment: Qt.AlignHCenter
         }
     }
 

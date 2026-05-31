@@ -16,9 +16,9 @@ JsonObject {
 
     property TypographyValues typography: Config.tokens.system.typography.mediumLabel
     property PaddingValues padding: PaddingValues {
-        bottom: Config.tokens.system.measurements.extraSmall
-        left: Config.tokens.system.measurements.small
-        right: Config.tokens.system.measurements.small
-        top: Config.tokens.system.measurements.extraSmall
+        bottom: Config.tokens.system.measurements.none
+        left: Config.tokens.system.measurements.none
+        right: Config.tokens.system.measurements.none
+        top: Config.tokens.system.measurements.none
     }
 }
