@@ -19,9 +19,9 @@ RowLayout {
     }
 
     QuickToggle {
-        enabled: Bluetooth.defaultAdapter.enabled && Bluetooth.defaultAdapter.devices.values.length > 0
-        icon: Bluetooth.defaultAdapter.enabled ? Bluetooth.defaultAdapter.devices.values.filter(device => device.connected).length > 0 ? "bluetooth_connected" : "bluetooth" : "bluetooth_disabled"
-        text: Bluetooth.defaultAdapter.enabled && Bluetooth.defaultAdapter.devices.values.filter(device => device.connected).length > 0 ? Bluetooth.defaultAdapter.devices.values.filter(device => device.connected)[0].name : qsTr("Bluetooth")
+        enabled: Bluetooth.defaultAdapter?.enabled === true && Bluetooth.defaultAdapter.devices.values.length > 0
+        icon: Bluetooth.defaultAdapter?.enabled === true ? Bluetooth.defaultAdapter.devices.values.filter(device => device.connected).length > 0 ? "bluetooth_connected" : "bluetooth" : "bluetooth_disabled"
+        text: Bluetooth.defaultAdapter?.enabled === true && Bluetooth.defaultAdapter.devices.values.filter(device => device.connected).length > 0 ? Bluetooth.defaultAdapter.devices.values.filter(device => device.connected)[0].name : qsTr("Bluetooth")
 
         Layout.fillWidth: true
         Layout.preferredWidth: 1
